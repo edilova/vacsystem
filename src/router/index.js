@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store/store.js'
+
 
 // Containers
 const DefaultContainer = () => import('@/containers/DefaultContainer')
@@ -31,6 +33,7 @@ const Addworkers = () => import('@/views/forInput/Addworkers')
 const Addvillage = () => import('@/views/forInput/Addvillage')
 const Addfarmer = () => import('@/views/forInput/Addfarmer')
 const Addlivestock = () => import('@/views/forInput/Addlivestock')
+const Addvaccination = () => import('@/views/forInput/Addvaccination')
 
 
 // Views - animalRecords
@@ -83,6 +86,7 @@ const Modals = () => import('@/views/notifications/Modals')
 const Page404 = () => import('@/views/pages/Page404')
 const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
+const Logon = () => import('@/views/pages/Logon')
 const Register = () => import('@/views/pages/Register')
 
 // Users
@@ -91,14 +95,14 @@ const User = () => import('@/views/users/User')
 
 Vue.use(Router)
 
-export default new Router({
+let router =  new Router({
   mode: 'hash', // https://router.vuejs.org/api/#mode
   linkActiveClass: 'open active',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
       path: '/',
-      redirect: '/pages/login',
+      redirect: '/login',
       name: 'Начало',
       component: DefaultContainer,
       children: [
@@ -110,43 +114,67 @@ export default new Router({
         {
           path: 'main',
           name: 'Главная',
-          component: Main
+          component: Main,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'reports',
           name: 'Отчеты',
-          component: Reports
+          component: Reports,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'handbook',
           name: 'Справочник',
-          component: Handbook
+          component: Handbook,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'mainInput',
           name: 'Ввод данных',
           component: MainInput,
+            meta: {
+                requiresAuth: true
+            }
 
         },
         {
           path: 'workers',
           name: 'Работники',
-          component: Workers
+          component: Workers,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'addworkers',
           name: 'Добавить Работника',
-          component: Addworkers
+          component: Addworkers,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'village',
           name: 'Поселок',
-          component: Village
+          component: Village,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'addvillage',
           name: 'Добавить поселок',
-          component: Addvillage
+          component: Addvillage,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
           path: 'farmer',
@@ -167,6 +195,11 @@ export default new Router({
           path: 'addlivestock',
           name: 'LIVESTOCK',
           component: Addlivestock
+        },
+        {
+          path: 'addvaccination',
+          name: 'Addvaccination',
+          component: Addvaccination
         },
         {
           path: 'vaccination',
@@ -445,6 +478,11 @@ export default new Router({
         }
       ]
     },
+      {
+          path: '/login',
+          name: 'Login',
+          component: Login
+      },
     {
       path: '/pages',
       redirect: '/pages/404',
@@ -463,11 +501,16 @@ export default new Router({
           name: 'Page500',
           component: Page500
         },
-        {
-          path: 'login',
-          name: 'Login',
-          component: Login
-        },
+        // {
+        //   path: 'login',
+        //   name: 'Login',
+        //   component: Login
+        // },
+          {
+              path: 'logon',
+              name: 'Logon',
+              component: Logon
+          },
         {
           path: 'register',
           name: 'Register',
@@ -477,3 +520,19 @@ export default new Router({
     }
   ]
 })
+
+
+
+router.beforeEach((to, from, next) => {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+        if (store.getters.isLoggedIn) {
+            next()
+            return
+        }
+        next('/login')
+    } else {
+        next()
+    }
+})
+
+export default router

@@ -13,10 +13,13 @@ export default {
       name: 'Главная',
       url: '/main',
       icon: 'icon-speedometer',
+      meta:{
+          requiresAuth: true,
+      },
       badge: {
         variant: 'primary',
         // text: 'NEW'
-      }
+      },
     },
     // {
     //   name: 'Учет животных',
@@ -53,18 +56,27 @@ export default {
     {
       name: 'Отчеты',
       url: '/reports',
-      icon: 'icon-pencil'
+      icon: 'icon-pencil',
+        meta:{
+            requiresAuth: true,
+        },
     },
-    {
-      name: 'Справочники',
-      url: '/handbook',
-      icon: 'icon-pencil'
-    },
-    {
-      name: 'Настройки',
-      url: '/settings',
-      icon: 'icon-pencil'
-    },
+    // {
+    //   name: 'Справочники',
+    //   url: '/handbook',
+    //   icon: 'icon-pencil',
+    //     meta:{
+    //         requiresAuth: true,
+    //     },
+    // },
+    // {
+    //   name: 'Настройки',
+    //   url: '/settings',
+    //   icon: 'icon-pencil',
+    //     meta:{
+    //         requiresAuth: true,
+    //     },
+    // },
     // {
     //   title: true,
     //   name: 'Components',
@@ -92,7 +104,7 @@ export default {
       ]
     },
     {
-      name: 'For Input',
+      name: 'Ввод данных',
       url: '/mainInput',
       icon: 'icon-pencil'
     },
@@ -178,7 +190,10 @@ export default {
     //     {
     //       name: 'Login',
     //       url: '/pages/login',
-    //       icon: 'icon-star'
+    //       icon: 'icon-star',
+    //         meta: {
+    //             requiresVisitor: true
+    //         }
     //     },
     //     {
     //       name: 'Register',
@@ -186,8 +201,8 @@ export default {
     //       icon: 'icon-star'
     //     },
     //     {
-    //       name: 'Error 404',
-    //       url: '/pages/404',
+    //       name: 'Logon',
+    //       url: '/pages/logon',
     //       icon: 'icon-star'
     //     },
     //     {

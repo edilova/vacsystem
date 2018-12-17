@@ -84,7 +84,7 @@
         <!--<option disabled value="">Please select one</option>-->
         <!--<option  v-for="todo in todos.results">{{todo.name}}</option>-->
       <!--</select>-->
-      <span>Selected: {{ selected }}</span>
+      <!--<span>Selected: {{ selected }}</span>-->
       <!--<div>Main Pagewevew-->
         <!--<b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">-->
           <!--<b-button v-on:click="created" block variant="primary" class="mb-2" >Добавить фермера</b-button>-->

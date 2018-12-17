@@ -2,8 +2,8 @@
   <div class="app">
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
-      <b-link class="navbar-brand" to="#">
-        <h3>TUT LOGO</h3>
+      <b-link class="navbar-brand" to="/main">
+        <h3>VAC</h3>
         <!--<img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">-->
         <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
       </b-link>
@@ -24,10 +24,11 @@
         <!--<b-nav-item class="d-md-down-none">-->
           <!--<i class="icon-location-pin"></i>-->
         <!--</b-nav-item>-->
-        <DefaultHeaderDropdownAccnt/>
+        <b-nav-item class="px-3" @click="logout" exact>Log out</b-nav-item>
+        <!--<DefaultHeaderDropdownAccnt/>-->
       </b-navbar-nav>
       <AsideToggler class="d-none d-lg-block" />
-      <!--<AsideToggler class="d-lg-none" mobile />-->
+
     </AppHeader>
     <div class="app-body">
       <AppSidebar fixed>
@@ -48,17 +49,6 @@
         <DefaultAside/>
       </AppAside>
     </div>
-    <!--<TheFooter>-->
-      <!--&lt;!&ndash;footer&ndash;&gt;-->
-      <!--<div>-->
-        <!--<a href="https://coreui.io">CoreUI</a>-->
-        <!--<span class="ml-1">&copy; 2018 creativeLabs.</span>-->
-      <!--</div>-->
-      <!--<div class="ml-auto">-->
-        <!--<span class="mr-1">Powered by</span>-->
-        <!--<a href="https://coreui.io">CoreUI for Vue</a>-->
-      <!--</div>-->
-    <!--</TheFooter>-->
   </div>
 </template>
 
@@ -67,6 +57,7 @@ import nav from '@/_nav'
 import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultAside from './DefaultAside'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
+import $ from 'jquery'
 
 export default {
   name: 'DefaultContainer',
@@ -88,6 +79,7 @@ export default {
   },
   data () {
     return {
+        token:  sessionStorage.getItem('access_token') ,
       nav: nav.items
     }
   },
@@ -98,6 +90,22 @@ export default {
     list () {
       return this.$route.matched.filter((route) => route.name || route.meta.label )
     }
+  },
+  methods:{
+      // logout(){
+      //     console.log("in logout")
+      //     this.token === sessionStorage.removeItem('access_token')
+      //     console.log(this.token)
+      //     console.log("SESSION")
+      //     this.$router.push({ name: 'Login', query: { redirect: '/login' } });
+      // }
+
+      logout: function () {
+          this.$store.dispatch('logout')
+              .then(() => {
+                  this.$router.push('/login')
+              })
+      }
   }
 }
 </script>

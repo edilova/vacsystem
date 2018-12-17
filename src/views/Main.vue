@@ -1,35 +1,69 @@
 <template>
-    <div>Main Pagewevew
-      <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
-        <b-button v-on:click="created" block variant="primary" class="mb-2" >Добавить фермера</b-button>
-      </b-col>
-      <!--{{todos}}-->
-      <!--{{todos.name}}-->
-
-      <div v-for="todo in todos">
-        <p>{{todo}}</p>
-      </div>
 
 
+    <div>
 
-      <div>
 
-        <hr>
-        <h2>Fetch Example</h2>
-        <downloadexcel
-          class = "btn"
-          :data = "json_data"
-          :fields = "json_fields"
+      <b-card>
+        <div class="back-color">
+          <h5 class=" w-75 font-italic mx-auto mb-3">Система вакцинации - программный продукт разработки, позволяющий пользователю системы с
+            помощью панели веб-приложения осуществлять контроль вакцинации животных, вести их учёт и
+            получать необходимую документацию в электроннй или печатной форме, также вакцинаторам с помощью
+            мобильного приложения  осуществлять вакцинации по идентифицированному коду животного</h5>
+        </div>
 
-          type    = "csv">
-          Download Excel
-        </downloadexcel>
-      </div>
-      <!--<ul v-if="todos && todos.length">-->
-        <!--<li v-for="todo of todos">-->
-          <!--<h2>{{todo.name}}</h2>-->
-        <!--</li>-->
-      <!--</ul>-->
+        <br>
+        <div class="grey-color w-75 mx-auto mb-5">
+          <p class="my-3"><strong>Основные цели системы:</strong></p>
+          <p>1.обеспечение учёта вакцинаций сельскохозяйственных животных на територии Казахстана,</p>
+          <p>2.локализация и предотвращение распространения эпидемий, в первую очередь опасных для здоровья человека,</p>
+          <p>3.организация взаимодействия между вакцинаторами и операторов,</p>
+          <p>4.выполнение нормативных требований государства в сфере вакцинирования</p>
+        </div>
+
+        <div class="grey-color w-75 mx-auto">
+          <p class="my-3"><strong>Функциональные возможности системы:</strong></p>
+          <p>1.регистрация владельца с присвоением уникального номера (ID код)</p>
+          <p>2.регистрация животных и учет их ID кода в программе 3)фиксация и архивирование данных по вакцинациям животных</p>
+          <p>4.формирование заданий на проведение санитарно-ветеринарных мероприятий и вакцинаций с использованием расходных материалов с нанесенным штрих-кодом и привязкой к ID коду животного для дальнейшей отправки в отчетность,</p>
+          <p>5.вакцинация животных со стационарных и мобильных устройств, имеющих доступ к сети Интернет</p>
+        </div>
+      </b-card>
+
+
+
+      <!--<b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">-->
+        <!--<b-button v-on:click="created" block variant="primary" class="mb-2" >Добавить фермера</b-button>-->
+      <!--</b-col>-->
+      <!--<p>Number of Entries: {{ resultCount }}</p>-->
+      <!--<p>Number of Entries2: {{ resultCount2 }}</p>-->
+      <!--{{nur.length}}-->
+      <!--<div v-for="todo in nur" >-->
+        <!--<p v-if="todo.typeoflivestock == '1'" >{{todo.typeoflivestock}}{{todo.length}}</p>-->
+      <!--</div>-->
+      <!--<p v-for="user in orderedUsers">{{ user.typeoflivestock }}</p>-->
+      <!--{{nur}}-->
+      <!--<div>-->
+        <!--<hr>-->
+        <!--<h2>Fetch Example</h2>-->
+        <!--<downloadexcel-->
+          <!--class = "btn"-->
+          <!--:data = "json_data"-->
+          <!--:fields = "json_fields"-->
+
+          <!--type    = "csv">-->
+          <!--Download Excel-->
+        <!--</downloadexcel>-->
+      <!--</div>-->
+      <!--<div id="simple-filter">-->
+        <!--<input type="text" v-model="searchText" />-->
+        <!--<ul>-->
+          <!--<li v-for="animal in filteredAnimals">{{ animal }}</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--<b-button v-on:click="Nur" block variant="primary" class="mb-2" >Nurzhik</b-button>-->
+      <!--<b-button v-on:click="Nur2" block variant="primary" class="mb-2" >Nurzhik2</b-button>-->
+      <!--{{result}}-->
     </div>
 </template>
 
@@ -41,8 +75,7 @@
   import axios from 'axios';
 
 
-
-    export default {
+  export default {
         name: "Main",
       components: {
         downloadexcel,
@@ -50,6 +83,16 @@
       data: () => {
         return {
           todos: [],
+            getFarmer:"",
+            nur: "",
+            info: "",
+            nurLen: "",
+            nurlist: "",
+            searchText:"",
+            result:"",
+            filter: "1",
+
+            animals: ['Zebra', 'Lion', 'Shark', 'Dog', 'Bear', 'Monkey'],
           json_fields: {
             'Complete name': 'name',
             'Date': 'date',
@@ -88,31 +131,103 @@
           ],
         }
       },
+
+      created: function () {
+          this.fetchData();
+      },
+      mounted() {
+          const token = sessionStorage.getItem('token');
+          axios.defaults.headers.common['Authorization'] = "Token " + token
+          axios.get('https://vaccinsystem.herokuapp.com/livestock/LiveStock/')
+              .then(response => {
+                  // this.logItems = response.data // this bit works fine
+                  this.responseData = response
+              })
+              .catch(err => {console.log(err)
+              })
+      },
+      computed: {
+          filteredAnimals: function() {
+              var self = this;
+              return this.animals.filter(function (animal) {
+                  return _.includes(animal.toLowerCase(), self.searchText.toLowerCase());
+              });
+          },
+          resultCount () {
+              return this.nur && this.nur.length
+          },
+          resultCount2 () {
+              return this.nur.typeoflivestock=="1" && this.nur.typeoflivestock.length
+          },
+          orderedUsers: function () {
+              return _.orderBy(this.users, 'typeoflivestock')
+          }
+
+      },
       methods:{
-        // async fetchData(){
-        //   const response = await axios.get('https://holidayapi.com/v1/holidays?key=a4b2083b-1577-4acd-9408-6e529996b129&country=US&year=2017&month=09');
-        //   console.log(response);
-        //   return response.data.holidays;
-        // },
+          fetchData: function () {
+              return new Promise((resolve, reject) => {
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  axios({url: 'https://vaccinsystem.herokuapp.com/livestock/LiveStock/', method: 'GET' })
+
+                      .then(resp => {
+                          console.log('LIVESTOCK',resp.data)
+                          this.nur = resp.data.results
+                          console.log("OOoOOOOO",this.nur)
+                          // for(i in nur){
+                          //     if(i.id != 1){
+                          //         console.log("1")
+                          //     }
+                          // }
+
+
+                          this.result = this.nur.length;
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+              })
+
+          },
+            Nur(){
+
+                const token = sessionStorage.getItem('token');
+                axios.defaults.headers.common['Authorization'] = "Token " + token
+                axios({url: 'https://vaccinsystem.herokuapp.com/livestock/LiveStock/', method: 'GET' })
+
+                    .then(resp => {
+                        console.log('LIVESTOCK',resp.data)
+                        this.nur = resp.data.results
+                        this.nurList =  this.nur.filter(function (animal) {
+                            return _.includes(animal.toLowerCase(), self.searchText.toLowerCase());
+                        });
+
+                        // resolve(resp)
+                    })
+                    .catch(err => {console.log(err)
+                    })
+            },
+
+
+          Nur2(){
+              let id = "2323"
+              this.$store.dispatch('nur', { id})
+                  .then(() => {
+
+                  })
+                  .catch(err => console.log(err))
+
+          },
         created() {
-          console.log("CREATED CLICKED")
-          this.$http.get('https://vaccinsystem.herokuapp.com/employee/Department/').then(function (data) {
-            this.todos = data.body
-            console.log(data)
-          })
-          // axios.get('https://vaccinsystem.herokuapp.com/vaccination/Disease/',{
-            // headers: {
-            //   "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU0NDUyNTM3NSwianRpIjoiZTYzMDU1NjA1OTBiNDcwZGJhOTgyMzE4MjkwNmM4Y2UiLCJ1c2VyX2lkIjoxfQ.bKKcgeb907surGnP8BpZ6DPxQlvMJLZneZ-XztTQ6T0",
-            //   "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTQ0NDM5Mjc1LCJqdGkiOiJhNTM5YjliZjA1ZWQ0Y2Q4ODU2YTE3ODQ2NzBjZTg5OSIsInVzZXJfaWQiOjF9.gpiEroljGTodTa_bp3W_EQUQM7DE6u_ZW6yKpr0Yduk"
-            // }
-          // })
-          //   .then(response => {
-          //     this.todos = response.data.results
-          //     console.log(response.data)
-          //   })
-          //   .catch(error => {
-          //     console.log(error);
-          //   })
+
+            this.$store.dispatch('main')
+                .then(() => {
+                        this.todos = data.body
+                        console.log("DATA",data)
+                })
+                .catch(err => console.log(err))
         },
       }
     }
@@ -121,5 +236,11 @@
 </script>
 
 <style scoped>
+  .back-color{
+    color: #17799c;
+  }
+  .grey-color{
+    color: #666;
+  }
 
 </style>

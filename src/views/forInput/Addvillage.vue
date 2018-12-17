@@ -8,34 +8,90 @@
           label-for="basicName"
           :label-cols="3"
           :horizontal="true">
-          <b-form-input id="basicName" type="text" autocomplete="name"></b-form-input>
+          <b-form-input id="basicName" type="text" autocomplete="name" v-model="name"></b-form-input>
         </b-form-group>
 
 
 
-        <b-form-group
-          label="Сельский округ"
-          label-for="basicSelect"
-          :label-cols="3"
-          :horizontal="true">
-          <b-form-select id="basicSelect"
-                         :plain="true"
-                         :options="['Please select','Option 1', 'Option 2', 'Option 3']"
-                         value="Please select">
-          </b-form-select>
-        </b-form-group>
+
+        <div class="row">
+          <div class="col-3">
+            <p>Сельский Округ</p>
+          </div>
+          <div class="col-9">
+            <select class="w-100"  v-model="selectedSO">
+              <option disabled value=""> Please select one</option>
+              <option  v-for="so in getSO">{{so.id}}
+              </option>
+            </select>
+          </div>
+        </div>
+
 
       </b-form>
       <div class="form-actions">
-        <b-button type="submit" variant="primary">Добавить работника</b-button>
+        <b-button type="submit" variant="primary" @click="createNew">Добавить поселок</b-button>
       </div>
     </b-card>
   </div>
 </template>
 
 <script>
+    import axios from 'axios'
+
+
+
     export default {
-        name: "Addvillage"
+        name: "Addvillage",
+        data: () => {
+            return {
+                selectedSO: "",
+                name: "",
+                getSO: "",
+                ruraldistrict: "",
+            }
+        },
+        created: function () {
+            this.fetchData();
+        },
+        methods:{
+            fetchData: function () {
+                return new Promise((resolve, reject) => {
+                    console.log('promise example ');
+                    const token = sessionStorage.getItem('token');
+                    axios.defaults.headers.common['Authorization'] = "Token " + token
+                    console.log(axios.defaults.headers, 'headers in get');
+
+                    //get Department
+                    axios({url: 'https://vaccinsystem.herokuapp.com/farmer/RuralDistrict/', method: 'GET' })
+
+                        .then(resp => {
+                            console.log('getWorkers',resp.data)
+                            this.getSO = resp.data.results
+                            resolve(resp)
+
+
+                        })
+                        .catch(err => {console.log(err)
+                        })
+
+                })
+            },
+            createNew(){
+                let name = this.name
+                let ruraldistrict = this.selectedSO
+
+                console.log(ruraldistrict)
+                this.$store.dispatch('createVillage', { name, ruraldistrict})
+                    .then(() => {
+                        this.$router.push('/village')
+                    })
+                    .catch(err => console.log(err))
+
+                console.log("in creat new village fuction")
+
+            }
+        }
     }
 </script>
 
