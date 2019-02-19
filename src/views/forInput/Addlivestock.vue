@@ -16,9 +16,9 @@
                         <p>Пол животного</p>
                     </div>
                     <div class="col-9">
-                        <select class="w-100" v-model="selectedGender" >
-                            <option disabled value="">Please select one</option>
-                            <option v-for="plac in getGender">{{plac.id}}</option>
+                        <select class="w-100"  v-model="selectedGender">
+                            <option disabled value="">Выберите пол животного</option>
+                            <option v-for="plac in getGender" v-bind:value="plac.id">{{plac.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
                     </div>
                     <div class="col-9">
                         <select class="w-100" v-model="selectedSuit" >
-                            <option disabled value="">Please select one</option>
-                            <option v-for="suit in getSuit">{{suit.id}}</option>
+                            <option disabled value="">Выберите масть животного</option>
+                            <option v-for="suit in getSuit" v-bind:value="suit.id">{{suit.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -51,8 +51,8 @@
                     </div>
                     <div class="col-9">
                         <select class="w-100" v-model="selectedFarmer" >
-                            <option disabled value="">Please select one</option>
-                            <option v-for="far in getFarmer">{{far.id}}</option>
+                            <option disabled value="">Выберите владельца</option>
+                            <option v-for="far in getFarmer" v-bind:value="far.id">{{far.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                     </div>
                     <div class="col-9">
                         <select class="w-100" v-model="selectedPlace" >
-                            <option disabled value="">Please select one</option>
-                            <option v-for="plac in getPlace">{{plac.id}}</option>
+                            <option disabled value="">Выберите место рождения</option>
+                            <option v-for="plac in getPlace" v-bind:value="plac.id">{{plac.name}}</option>
                         </select>
                     </div>
                 </div>

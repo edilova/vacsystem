@@ -20,8 +20,8 @@
           </div>
           <div class="col-9">
             <select class="w-100"  v-model="selectedSO">
-              <option disabled value=""> Please select one</option>
-              <option  v-for="so in getSO">{{so.id}}
+              <option disabled value="">Выберите сельский округ</option>
+              <option  v-for="so in getSO" v-bind:value="so.id">{{so.name}}
               </option>
             </select>
           </div>

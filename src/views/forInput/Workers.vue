@@ -7,8 +7,6 @@
         <b-col cols="2" sm="4" md="2" class="ml-1 mb-3 mb-xl-0 ">
           <b-button v-on:click="listOfWorkers('notadd')"  block variant="primary" class="mb-2" >Список  работников</b-button>
         </b-col>
-
-
       </div>
 
 
@@ -37,6 +35,9 @@
             </tr>
             </tbody>
           </table>
+          <nav>
+            <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" prev-text="Prev" next-text="Next" hide-goto-end-buttons/>
+          </nav>
         </b-card>
       </div>
 
@@ -81,8 +82,8 @@
 
               <div class="col-9">
                 <select class="w-100" v-model="selectedSpec" >
-                  <option disabled value="">Please select one</option>
-                  <option v-for="spec in specialities">{{spec.id}}</option>
+                  <option disabled value="">Выберите специальность</option>
+                  <option v-for="spec in specialities" v-bind:value="spec.id">{{spec.name}}</option>
                 </select>
               </div>
 
@@ -95,8 +96,8 @@
 
               <div class="col-9">
                 <select class="w-100"  v-model="selectedDep">
-                  <option disabled value="">Please select one</option>
-                  <option  v-for="de in departments">{{de.id}}
+                  <option disabled value="">Выберите отдел</option>
+                  <option  v-for="de in departments" v-bind:value="de.id">{{de.name}}
                   </option>
 
                 </select>
@@ -111,8 +112,8 @@
 
               <div class="col-9">
                 <select class="w-100"  v-model="selectedSO">
-                  <option disabled value="">Please select one</option>
-                  <option  v-for="so in okrugs">{{so.id}}
+                  <option disabled value="">Выберите сельский округ</option>
+                  <option  v-for="so in okrugs" v-bind:value="so.id">{{so.name}}
                   </option>
                 </select>
               </div>
@@ -186,13 +187,32 @@
           fio: "",
           spec:"",
           otdel:"",
-          phone:""
+          phone:"",
+            currentPage: 1,
+            perPage: 10,
+            totalRows: 0
         }
       },
         created: function () {
             this.fetchData();
         },
       methods:{
+          getBadge (status) {
+              return status === 'Active' ? 'success'
+                  : status === 'Inactive' ? 'secondary'
+                      : status === 'Pending' ? 'warning'
+                          : status === 'Banned' ? 'danger' : 'primary'
+          },
+          getRowCount (items) {
+              return items.length
+          },
+          userLink (id) {
+              return `users/${id.toString()}`
+          },
+          rowClicked (item) {
+              const userLink = this.userLink(item.id)
+              this.$router.push({path: userLink})
+          },
 
           fetchData: function () {
               return new Promise((resolve, reject) => {

@@ -52,8 +52,8 @@
           </div>
           <div class="col-9">
             <select class="w-100"  v-model="village">
-              <option disabled value=""> Please select one</option>
-              <option  v-for="vil in getVillages">{{vil.id}}
+              <option disabled value="">Выберите поселок</option>
+              <option  v-for="vil in getVillages" v-bind:value="vil.id">{{vil.name}}
               </option>
             </select>
           </div>
@@ -133,8 +133,8 @@
 
                 this.$router.push('/farmer')
                 console.log("ARUUU",village)
-                }
             }
+        }
     }
 </script>
 

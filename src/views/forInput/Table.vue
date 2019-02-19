@@ -53,7 +53,7 @@
       },
       perPage: {
         type: Number,
-        default: 10
+        default: 20
       },
       dark: {
         type: Boolean,

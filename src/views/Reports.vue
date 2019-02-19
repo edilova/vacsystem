@@ -68,169 +68,426 @@
           </tbody>
         </table>
 
-        <b-dropdown id="ddown1" text="Выбрать отчет" class="m-2">
-          <b-dropdown-item v-on:click="reportId('report')">Вакцинация</b-dropdown-item>
+        <b-dropdown id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
+          <b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>
           <b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report1')">Информация по миграции одного животного по идентификационному номеру</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report2')">Информация по количеству зарегистрированных животных у владельца </b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report3')">Информация по количеству снятых животных у владельца </b-dropdown-item>
-          <!--<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>-->
-          <b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report6')">Информация по половозрастным группам животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report7')">Информация по зарегистрированным и снятым с учета животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report8')">Информация по прибывшим животным из других регионов</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report9')">Информация по снятым животным </b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report10')">Отчет по ветеринарно-профилактическим мероприятиям</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report11')">Отчет по болезням с/х животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report12')">Отчет по исследованиям с/х животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report13')">Отчет по замененным ИНЖ</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report14')">Информация по зарегистрированным/выбывшим животным одного владельца (Учет откорма животных)</b-dropdown-item>
-
-
+          <b-dropdown-item v-on:click="reportId('report1')">Отчет 3</b-dropdown-item>
+          <b-dropdown-item v-on:click="reportId('report2')">Отчет 4</b-dropdown-item>
+          <!--<b-dropdown-item v-on:click="reportId('report3')">Информация по количеству снятых животных у владельца </b-dropdown-item>-->
+          <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
+          <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report6')">Информация по половозрастным группам животных</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report7')">Информация по зарегистрированным и снятым с учета животных</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report8')">Информация по прибывшим животным из других регионов</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report9')">Информация по снятым животным </b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report10')">Отчет по ветеринарно-профилактическим мероприятиям</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report11')">Отчет по болезням с/х животных</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report12')">Отчет по исследованиям с/х животных</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report13')">Отчет по замененным ИНЖ</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report14')">Информация по зарегистрированным/выбывшим животным одного владельца (Учет откорма животных)</b-dropdown-item>-->
 
         </b-dropdown>
       </div>
 
 
       <div id="wrapper">
-        <div v-show="isReport == 'report'">
-          <b-card>
-            <table id="basic-table" class="table">
-            <thead>
-            <tr>
-              <th scope="col">Номер вакцинации</th>
-              <th scope="col">Вакцинатор</th>
-              <th scope="col">Номер животного</th>
-              <th scope="col">Вакцина</th>
-              <th scope="col">Кровь</th>
-              <th scope="col">Дата</th>
-            </tr>
-            </thead>
-            <tbody v-for="far in getVAC">
-            <tr>
-              <td v-model="id">{{far.id}}</td>
-              <td v-model="employee">{{far.employee}}</td>
-              <td v-model="livestock">{{far.livestock}}</td>
-              <td v-model="medicine">{{far.medicine}}</td>
-              <td v-model="bloodtest">{{far.bloodtest}}</td>
-              <td v-model="date">{{far.date}}</td>
-            </tr>
-            </tbody>
-          </table>
+        <div v-show="isReport =='report'">
+
+          <div  v-show="dataPage == 'notdata'">
+            <b-card>
+            <h5 class="text-center mb-3">Информация о владельце по ИИН или имени</h5>
+
+            <b-form>
+              <b-form-group
+                      label="ИИН или имя владельца:"
+                      label-for="basicName"
+                      :label-cols="3"
+                      :horizontal="true">
+                <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+              </b-form-group>
+
+            </b-form>
             <div class="form-actions">
-              <downloadexcel
-                      class = "btn"
-                      :data = "json_data"
-                      :fields = "json_fields"
-
-                      type    = "csv">
-
-                <b-button type="submit" variant="primary">Сформировать</b-button>
-                <!--Download Excel-->
-              </downloadexcel>
-
-
-              <!--<b-button type="submit" variant="primary" @click="createPDF">createPDF</b-button>-->
-              <!--<button @click="generate">Generate PDF</button>-->
-
+              <b-button type="submit" variant="primary" @click="repostRequest('data')">Сформировать</b-button>
             </div>
-          </b-card>
-        </div>
-        <div v-show="isReport == 'report0'">
+            </b-card>
+          </div>
+          <div  v-show="dataPage == 'data'">
+            <b-card>
+              <div v-for="nam in getFiltered">
+                <p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце {{nam.name}}</p>
+              </div>
 
-          <c-table :table-data="items" striped caption="<small style='font-size: 1.5rem'> Отчет по датам</small>"></c-table>
+              <table id="basic-table" class="table">
+                <thead>
+                <tr>
+                  <th scope="col">ИИН владельца</th>
+                  <th scope="col">Имя владельца</th>
+                  <th scope="col">Номер телефона</th>
+                  <th scope="col">Почта</th>
+                  <th scope="col">Адресс</th>
+                  <th scope="col">Поселок</th>
+                  <th scope="col">Кол-во скота</th>
+                </tr>
+                </thead>
+                <tbody v-for="far in getFiltered">
+                <tr>
+                  <td v-model="id">{{far.id}}</td>
+                  <td v-model="employee">{{far.name}}</td>
+                  <td v-model="livestock">{{far.phone}}</td>
+                  <td v-model="medicine">{{far.email}}</td>
+                  <td v-model="bloodtest">{{far.address}}</td>
+                  <td v-model="date">{{far.village}}</td>
+                  <td v-model="date">{{far.livestocks.length}}</td>
+                </tr>
+                <!--<p class="mt-5" style="font-size: 1.5rem;"> Данные о животных владельца {{far.name}}</p>-->
+                </tbody>
+              </table>
+
+
+
+              <div v-for="nam in getFiltered">
+                <p class="mt-5" style="color:#20a8d8; font-size: 1.5rem;">Данные о животных владельца {{nam.name}}</p>
+              </div>
+
+
+
+              <table id="basic-table" class="table">
+                <thead>
+                <tr>
+                  <th scope="col">Номер животного</th>
+                  <th scope="col">Возраст</th>
+                  <th scope="col">Место рождения</th>
+                  <th scope="col">Тип животного</th>
+                  <th scope="col">Пол животного</th>
+                </tr>
+                </thead>
+
+                <tbody v-for="cv in getFiltered">
+                <tr v-for="fil in cv.livestocks">
+                  <td v-model="id">{{fil.id}}</td>
+                  <td v-model="employee">{{fil.age}}</td>
+                  <td v-model="livestock">{{fil.placeofbirth}}</td>
+                  <td v-model="medicine">{{fil.typeoflivestock}}</td>
+                  <td v-model="bloodtest">{{fil.sex}}</td>
+                </tr>
+                </tbody>
+              </table>
+              <!--<div class="form-actions">-->
+              <!--<downloadexcel-->
+              <!--class = "btn"-->
+              <!--:data = "json_data"-->
+              <!--:fields = "json_fields"-->
+
+              <!--type    = "csv">-->
+
+              <!--<b-button type="submit" variant="primary">Сформировать</b-button>-->
+              <!--&lt;!&ndash;Download Excel&ndash;&gt;-->
+              <!--</downloadexcel>-->
+
+
+              <!--&lt;!&ndash;<b-button type="submit" variant="primary" @click="createPDF">createPDF</b-button>&ndash;&gt;-->
+              <!--&lt;!&ndash;<button @click="generate">Generate PDF</button>&ndash;&gt;-->
+
+              <!--</div>-->
+            </b-card>
+          </div>
+
+        </div>
+        <div v-show="isReport =='report0'">
+
+          <div  v-show="dataPage1 == 'notdata1'">
+            <b-card>
+              <h5 class="text-center mb-3">Информация о вакцинации и дате животного </h5>
+
+              <b-form>
+                <b-form-group
+                        label="ИИН или имя владельца:"
+                        label-for="basicName"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+                </b-form-group>
+
+              </b-form>
+              <div class="form-actions">
+                <b-button type="submit" variant="primary" @click="repostRequest('data1')">Сформировать</b-button>
+              </div>
+            </b-card>
+          </div>
+          <div  v-show="dataPage == 'data1'">
+            <b-card>
+              <div v-for="nam in getFiltered">
+                <p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце {{nam.name}}</p>
+              </div>
+
+              <table  id="basic-table" class="table">
+                <thead>
+                <tr>
+                  <th scope="col">ИИН владельца</th>
+                  <th scope="col">Имя владельца</th>
+                  <th scope="col">Номер телефона</th>
+                  <th scope="col">Почта</th>
+                  <th scope="col">Адресс</th>
+                  <th scope="col">Поселок</th>
+                  <th scope="col">Кол-во скота</th>
+                </tr>
+                </thead>
+                <tbody v-for="far in getFiltered">
+                <tr>
+                  <td v-model="id">{{far.id}}</td>
+                  <td v-model="employee">{{far.name}}</td>
+                  <td v-model="livestock">{{far.phone}}</td>
+                  <td v-model="medicine">{{far.email}}</td>
+                  <td v-model="bloodtest">{{far.address}}</td>
+                  <td v-model="date">{{far.village}}</td>
+                  <td v-model="date">{{far.livestocks.length}}</td>
+                </tr>
+                <!--<p class="mt-5" style="font-size: 1.5rem;"> Данные о животных владельца {{far.name}}</p>-->
+                </tbody>
+              </table>
+
+
+
+              <div v-for="nam in getFiltered">
+                <p class="mt-5" style="color:#20a8d8; font-size: 1.5rem;">Данные о Вакцинации животных владельца {{nam.name}}</p>
+              </div>
+
+
+
+              <!--<table id="basic-table" class="table">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                  <!--<th scope="col">Номер животного</th>-->
+                  <!--<th scope="col">Возраст</th>-->
+                  <!--<th scope="col">Место рождения</th>-->
+                  <!--<th scope="col">Тип животного</th>-->
+                  <!--<th scope="col">Пол животного</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+
+                <!--<tbody v-for="cv in getFiltered">-->
+                <!--<tr v-for="fil in cv.livestocks">-->
+                  <!--<td v-model="id">{{fil.id}}</td>-->
+                  <!--<td v-model="employee">{{fil.age}}</td>-->
+                  <!--<td v-model="livestock">{{fil.placeofbirth}}</td>-->
+                  <!--<td v-model="medicine">{{fil.typeoflivestock}}</td>-->
+                  <!--<td v-model="bloodtest">{{fil.sex}}</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+              <!--</table>-->
+
+              <div v-for="fer in getFiltered">
+                <table id="basic-table" class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col">Номер животного</th>
+                    <th scope="col">Номер вакцинации</th>
+                    <th scope="col">Вакцинатор</th>
+                    <th scope="col">Дата вакцинации</th>
+                    <th scope="col">Вакцина</th>
+                  </tr>
+                  </thead>
+
+                  <tbody v-for="cv in fer.livestocks">
+                  <tr v-for="fil in cv.vaccinations">
+                    <td v-model="id">{{fer.id}}</td>
+                    <td v-model="id">{{fil.id}}</td>
+                    <td v-model="employee">{{fil.employee}}</td>
+                    <td v-model="livestock">{{fil.date}}</td>
+                    <td v-model="medicine">{{fil.medicine}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--<div class="form-actions">-->
+              <!--<downloadexcel-->
+              <!--class = "btn"-->
+              <!--:data = "json_data"-->
+              <!--:fields = "json_fields"-->
+
+              <!--type    = "csv">-->
+
+              <!--<b-button type="submit" variant="primary">Сформировать</b-button>-->
+              <!--&lt;!&ndash;Download Excel&ndash;&gt;-->
+              <!--</downloadexcel>-->
+
+
+              <!--&lt;!&ndash;<b-button type="submit" variant="primary" @click="createPDF">createPDF</b-button>&ndash;&gt;-->
+              <!--&lt;!&ndash;<button @click="generate">Generate PDF</button>&ndash;&gt;-->
+
+              <!--</div>-->
+            </b-card>
+          </div>
+
         </div>
         <div v-show="isReport =='report1'">
-          <b-card>
-            <h5 class="text-center mb-3">Информация по миграции одного животного по идентификационному номеру</h5>
+          <div  v-show="dataPage2 == 'notdata2'">
+            <b-card>
+              <h5 class="text-center mb-3">Информация о вакцинации и дате животного gfewfew</h5>
 
-            <b-form>
-              <b-form-group
-                label="ИНЖ животного:"
-                label-for="basicName"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-input id="basicName" type="text" autocomplete="name"></b-form-input>
-              </b-form-group>
+              <b-form>
+                <b-form-group
+                        label="ИИН или имя владельца:"
+                        label-for="basicName"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+                </b-form-group>
 
-            </b-form>
-            <div class="form-actions">
-              <b-button type="submit" variant="primary">Сформировать</b-button>
-            </div>
-          </b-card>
+              </b-form>
+              <div class="form-actions">
+                <b-button type="submit" variant="primary" @click="repostRequest('data2')">Сформировать</b-button>
+              </div>
+            </b-card>
+          </div>
+          <div  v-show="dataPage == 'data2'">
+            <b-card>
+              <!--<div v-for="nam in getFiltered2">-->
+                <!--<p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце rwgwwwwww</p>-->
+              <!--</div>-->
 
+
+              <!--<div>-->
+                <!--<table id="basic-table" class="table">-->
+                  <!--<thead>-->
+                  <!--<tr v-for="fer in getFiltered2">-->
+                    <!--<th scope="col"></th>-->
+                    <!--<th scope="col">{{fer.medicine}}</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+
+                  <!--<tbody v-for="cv in fer.livestocks">-->
+                  <!--<tr v-for="fil in cv.vaccinations">-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+
+
+
+              <div v-for="nam in getFiltered">
+                <p class="mt-5" style="color:#20a8d8; font-size: 1.5rem;">Данные о Вакцинации животных владельца {{nam.name}}</p>
+              </div>
+
+
+              <div v-for="fer in getFiltered" style="overflow: scroll">
+                <table id="basic-table" class="table">
+                  <thead v-for="cv in fer.livestocks">
+                    <tr >
+                      <th scope="col">Животное</th>
+                      <th scope="col" v-for="cvv in cv.vaccinations">{{cvv.medicine}}</th>
+                    </tr>
+                  </thead>
+                  <tbody v-for="cv in fer.livestocks">
+                    <tr>
+                      <td scope="col" >{{fer.id}}</td>
+                      <td scope="col" v-for="cvv in cv.vaccinations">{{cvv.date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </b-card>
+          </div>
         </div>
         <div v-show="isReport =='report2'">
-          <b-card>
-            <h5 class="text-center mb-3">Информация по количеству зарегистрированных животных у владельца</h5>
-            <b-form>
-              <b-form-group
-                description="Let us know your full name."
-                label="Владелец/Пользователь"
-                label-for="basicName"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-input id="basicName" type="text" autocomplete="name"></b-form-input>
-              </b-form-group>
+          <div  v-show="dataPage3 == 'notdata3'">
+            <b-card>
+              <h5 class="text-center mb-3">Информация о вакцинации и дате животного 3</h5>
+
+              <b-form>
+                <b-form-group
+                        label="ИИН или имя владельца:"
+                        label-for="basicName"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+                </b-form-group>
+
+                <b-form-group
+                        label="Начало" label-for="date"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input type="date" id="date"></b-form-input>
+                </b-form-group>
 
 
-              <b-form-group
-                label="Вид животного"
-                label-for="basicSelect"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-select id="basicSelect"
-                               :plain="true"
-                               :options="['Please select','Option 1', 'Option 2', 'Option 3']"
-                               value="Please select">
-                </b-form-select>
-              </b-form-group>
-
-              <b-form-group
-                label="Дата"
-                label-for="basicInlineRadios"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-radio-group id="basicInlineRadios"
-                                    :plain="true"
-                                    :options="[
-                {text: 'На дату',value: '1'},
-                {text: 'Период',value: '2'}
-              ]"
-                                    :checked="3">
-                </b-form-radio-group>
-              </b-form-group>
+                <b-form-group
+                        label="Конец" label-for="date"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input type="date" id="date"></b-form-input>
+                </b-form-group>
 
 
-
-              <b-form-group
-                label="" label-for="date"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-input type="date" id="date"></b-form-input>
-              </b-form-group>
-
-
-
-              <b-form-group
-                label="По области"
-                label-for="basicSelect"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-select id="basicSelect"
-                               :plain="true"
-                               :options="['Please select','Option 1', 'Option 2', 'Option 3']"
-                               value="Please select">
-                </b-form-select>
-              </b-form-group>
+              </b-form>
+              <div class="form-actions">
+                <b-button type="submit" variant="primary" @click="repostRequest2('data3')">Сформировать</b-button>
+              </div>
+            </b-card>
+          </div>
+          <div  v-show="dataPage == 'data3'">
+            <b-card>
+              <!--<div v-for="nam in getFiltered2">-->
+              <!--<p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце rwgwwwwww</p>-->
+              <!--</div>-->
 
 
-            </b-form>
-            <div class="form-actions">
-              <b-button type="submit" variant="primary">Сформировать</b-button>
-            </div>
-          </b-card>
+              <!--<div>-->
+              <!--<table id="basic-table" class="table">-->
+              <!--<thead>-->
+              <!--<tr v-for="fer in getFiltered2">-->
+              <!--<th scope="col"></th>-->
+              <!--<th scope="col">{{fer.medicine}}</th>-->
+              <!--</tr>-->
+              <!--</thead>-->
 
+              <!--<tbody v-for="cv in fer.livestocks">-->
+              <!--<tr v-for="fil in cv.vaccinations">-->
+              <!--</tr>-->
+              <!--</tbody>-->
+              <!--</table>-->
+              <!--</div>-->
+
+
+
+              <!--<div v-for="nam in getFiltered">-->
+                <!--<p class="mt-5" style="color:#20a8d8; font-size: 1.5rem;">Otchet 3</p>-->
+              <!--</div>-->
+
+
+              <div style="overflow: scroll">
+                <table id="basic-table" class="table">
+                  <thead>
+                  <!--<tr v-for="med in fer.medicine">-->
+                    <th scope="col">Животное</th>
+                    <!--<th scope="col">{{fer.id}}</th>-->
+                    <th scope="col" v-for="ferr in getFiltered2">{{ferr.medicine.name}}</th>
+                    <!--<th scope="col" v-for="ferr in getFiltered2">{{ferr.id}}</th>-->
+                  <!--</tr>-->
+                  </thead>
+                  <tbody>
+                  <tr v-for="fer in getFiltered2">
+                    <td scope="col">{{fer.livestock.id}} </td>
+                    <td scope="col" v-for="fer in getFiltered2">{{fer.date}} </td>
+                    <!--<td scope="col">erv</td>-->
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pagination d-flex flex-row justify-content-between w-100">
+                <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                  <b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>
+                </b-col>
+                <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                  <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
+                </b-col>
+                <!--<b-button block variant="primary"  class="text-left" @click="pagebtnPrevious">Пред</b-button>-->
+                <!--&lt;!&ndash;<p class="m-0 text-center">{{pageid}}</p>&ndash;&gt;-->
+                <!--<b-button block variant="primary"  class="text-right" @click="pagebtnNext">След</b-button>-->
+              </div>
+            </b-card>
+          </div>
         </div>
         <div v-show="isReport =='report3'">
           <b-card>
@@ -1062,10 +1319,19 @@
             medicine:"",
             bloodtest:"",
             date: "",
-          isReport: 'report',
+          isReport: 'reportt',
           selected: null,
             oblast: 'Алматинская Область',
             getVAC: "",
+            filtername:"",
+            getFiltered:"",
+            getFiltered2:"",
+            dataPage:"notdata",
+            dataPage1: "notdata1",
+            dataPage2: "notdata2",
+            dataPage3: "notdata3",
+            linkPrev:"",
+            linkNext:"",
           options: [
             { value: null, text: 'Please select an option' },
             { value: 'Australia', text: 'Australia' },
@@ -1192,11 +1458,61 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
+                  // axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
+
+                  // axios({url: 'https://vaccinsystem.herokuapp.com/farmer/Farmer/', method: 'GET' })
+                  //
+                  //     .then(resp => {
+                  //         console.log('getVAC',resp.data)
+                  //         this.getVAC = resp.data.results
+                  //         resolve(resp)
+                  //
+                  //
+                  //     })
+                  //     .catch(err => {console.log(err)
+                  //     })
+                  //
+
+
+
+                  //get Department
+                  axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019' , method: 'GET' })
 
                       .then(resp => {
-                          console.log('getVAC',resp.data)
-                          this.getVAC = resp.data.results
+                          // console.log('getFarmer',resp.data)
+                          this.getFarmer = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          this.getFarmerLength = resp.data.count % 100
+                          // console.log('LENGTHHHHH', resp.data.count)
+                          resolve(resp)
+
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+
+              })
+          },
+          pagebtnPrevious(){
+              return new Promise((resolve, reject) => {
+                  // commit('auth_request')
+                  console.log('promise example ');
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  console.log(axios.defaults.headers, 'headers in get');
+
+                  //get Department
+                  axios({url: this.linkPrev, method: 'GET' })
+
+                      .then(resp => {
+                          console.log('get',resp.data)
+                          this.getFarmer = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          this.getFarmerLength = resp.data.count % 100
+                          console.log('pageprev', resp.data)
                           resolve(resp)
 
 
@@ -1205,6 +1521,104 @@
                       })
 
               })
+          },
+          pagebtnNext(){
+              return new Promise((resolve, reject) => {
+                  // commit('auth_request')
+                  console.log('promise example ');
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  console.log(axios.defaults.headers, 'headers in get');
+
+                  //get Department
+                  axios({url: this.linkNext, method: 'GET' })
+
+                      .then(resp => {
+                          console.log('get',resp.data)
+                          this.getFarmer = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          this.getFarmerLength = resp.data.count % 100
+                          console.log('pagenext', resp.data)
+                          resolve(resp)
+
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+              })
+          },
+
+          repostRequest($FullName){
+              this.dataPage = $FullName
+              this.dataPage1 = $FullName
+              return new Promise((resolve, reject) => {
+                  // commit('auth_request')
+                  console.log('promise example ');
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  console.log(axios.defaults.headers, 'headers in get');
+
+                  //get Department
+                  // axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
+                  axios({url: 'https://vaccinsystem.herokuapp.com/farmer/Farmer/?id='+this.filtername, method: 'GET' })
+
+                      .then(resp => {
+                          console.log('getFiltered',resp.data)
+                          this.getFiltered = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          console.log("ceeewf", this.getFiltered.results.livestocks)
+                          resolve(resp)
+
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+              })
+          },
+          repostRequest2($FullName){
+              this.dataPage = $FullName
+              this.dataPage1 = $FullName
+              return new Promise((resolve, reject) => {
+                  // commit('auth_request')
+                  console.log('promise example ');
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  console.log(axios.defaults.headers, 'headers in get');
+
+                  //get Department
+                  // axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
+                  axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019', method: 'GET' })
+
+                      .then(resp => {
+                          console.log('getFiltered2',resp.data)
+                          this.getFiltered2 = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          // console.log("Get Filtered2", this.getFiltered2.results)
+                          resolve(resp)
+
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+              })
+          },
+          createReport(){
+              let farname = this.farname
+              console.log("Imya fermera",farname)
+
+              this.$store.dispatch('createReport', {farname})
+                  .then(() => {
+                      this.$router.push('/farmer')
+
+                  })
+                  .catch(err => console.log(err))
+
           },
           createPDF () {
               let pdfName = 'test';

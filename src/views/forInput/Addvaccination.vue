@@ -20,12 +20,24 @@
 
                 <div class="row">
                     <div class="col-3">
+                        <p>Объем</p>
+                    </div>
+                    <div class="col-9">
+                        <select class="w-100" v-model="volume" >
+                            <option disabled value="">Выберите объем</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
                         <p>Доза</p>
                     </div>
                     <div class="col-9">
                         <select class="w-100" v-model="selectedDose" >
-                            <option disabled value="">Please select one</option>
-                            <option >1</option>
+                            <option disabled value="">Выберите дозу</option>
+                            <option>1</option>
                         </select>
                     </div>
                 </div>
@@ -36,8 +48,8 @@
                     </div>
                     <div class="col-9">
                         <select class="w-100" v-model="selectedDisease" >
-                            <option disabled value="">Please select one</option>
-                            <option v-for="plac in getDisease">{{plac.id}}</option>
+                            <option disabled value="">Выберите болезнь</option>
+                            <option v-for="plac in getDisease" v-bind:value="plac.id">{{plac.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -49,8 +61,8 @@
                     </div>
                     <div class="col-9">
                         <select class="w-100" v-model="selectedSuit" >
-                            <option disabled value="">Please select one</option>
-                            <option v-for="suit in getSuit">{{suit.id}}</option>
+                            <option disabled value="">Выберите вид животного</option>
+                            <option v-for="suit in getSuit" v-bind:value="suit.id">{{suit.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -83,13 +95,14 @@
             return {
                 id: "",
                 name: "",
+                volume: "",
                 description: "",
                 getSuit: "",
                 getGender: "",
                 getDisease: "",
                 selectedSuit: "",
                 selectedDose: "",
-                selectedDisease: [],
+                selectedDisease: "",
 
             }
         },
@@ -135,8 +148,9 @@
             createNew(){
                 let id = this.id
                 let name = this.name
-                let dose = this.selectedDose
-                let disease = [1, 1]
+                let volume = this.volume
+                let dose = "1"
+                let disease = this.selectedDisease
                 let modeofapplication = "1"
                 let typesoflivestock = this.selectedSuit
                 let description = this.description
@@ -150,7 +164,7 @@
                 // let description = "hello hello"
 
                 console.log(description)
-                this.$store.dispatch('createVaccination', { id, name, dose, disease, modeofapplication, typesoflivestock,description})
+                this.$store.dispatch('createVaccination', { id, name,volume, dose, disease, modeofapplication, typesoflivestock,description})
                     .then(() => {
                         console.log("ADD LIVESTOCK")
                     })
