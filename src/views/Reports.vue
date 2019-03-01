@@ -68,11 +68,11 @@
           </tbody>
         </table>
 
-        <b-dropdown id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
+        <b-dropdown  id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
           <b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report1')">Отчет 3</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report2')">Отчет 4</b-dropdown-item>
+          <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report1')">Отчет 3</b-dropdown-item>-->
+          <b-dropdown-item v-on:click="reportId('report2')">Отчет по датам</b-dropdown-item>
           <!--<b-dropdown-item v-on:click="reportId('report3')">Информация по количеству снятых животных у владельца </b-dropdown-item>-->
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
