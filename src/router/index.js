@@ -14,7 +14,6 @@ const Handbook = () => import('@/views/Handbook')
 const Settings = () => import('@/views/Settings')
 const GroupOperations = () => import('@/views/GroupOperations')
 const MainInput = () => import('@/views/MainInput')
-// const Report1 = () => import('@/views/report/Report1')
 
 
 // Views - Contacts
@@ -115,14 +114,6 @@ let router =  new Router({
                 requiresAuth: true
             }
         },
-          // {
-          //     path: 'report1',
-          //     name: 'Отчет номер 1',
-          //     component: Report1,
-          //     meta: {
-          //         requiresAuth: true
-          //     }
-          // },
         {
           path: 'addworkers',
           name: 'Добавить Работника',

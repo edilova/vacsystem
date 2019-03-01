@@ -1,9 +1,5 @@
 <template>
-
-
     <div>
-
-
       <b-card>
         <div class="back-color">
           <h5 class=" w-75 font-italic mx-auto mb-3">Система вакцинации - программный продукт разработки, позволяющий пользователю системы с
@@ -29,41 +25,6 @@
           <p>5.вакцинация животных со стационарных и мобильных устройств, имеющих доступ к сети Интернет</p>
         </div>
       </b-card>
-
-
-
-      <!--<b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">-->
-        <!--<b-button v-on:click="created" block variant="primary" class="mb-2" >Добавить фермера</b-button>-->
-      <!--</b-col>-->
-      <!--<p>Number of Entries: {{ resultCount }}</p>-->
-      <!--<p>Number of Entries2: {{ resultCount2 }}</p>-->
-      <!--{{nur.length}}-->
-      <!--<div v-for="todo in nur" >-->
-        <!--<p v-if="todo.typeoflivestock == '1'" >{{todo.typeoflivestock}}{{todo.length}}</p>-->
-      <!--</div>-->
-      <!--<p v-for="user in orderedUsers">{{ user.typeoflivestock }}</p>-->
-      <!--{{nur}}-->
-      <!--<div>-->
-        <!--<hr>-->
-        <!--<h2>Fetch Example</h2>-->
-        <!--<downloadexcel-->
-          <!--class = "btn"-->
-          <!--:data = "json_data"-->
-          <!--:fields = "json_fields"-->
-
-          <!--type    = "csv">-->
-          <!--Download Excel-->
-        <!--</downloadexcel>-->
-      <!--</div>-->
-      <!--<div id="simple-filter">-->
-        <!--<input type="text" v-model="searchText" />-->
-        <!--<ul>-->
-          <!--<li v-for="animal in filteredAnimals">{{ animal }}</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-      <!--<b-button v-on:click="Nur" block variant="primary" class="mb-2" >Nurzhik</b-button>-->
-      <!--<b-button v-on:click="Nur2" block variant="primary" class="mb-2" >Nurzhik2</b-button>-->
-      <!--{{result}}-->
     </div>
 </template>
 
@@ -138,7 +99,7 @@
       mounted() {
           const token = sessionStorage.getItem('token');
           axios.defaults.headers.common['Authorization'] = "Token " + token
-          axios.get('https://vaccinsystem.herokuapp.com/livestock/LiveStock/')
+          axios.get('http://185.22.65.39:7000/livestock/LiveStock/')
               .then(response => {
                   // this.logItems = response.data // this bit works fine
                   this.responseData = response
@@ -169,7 +130,7 @@
               return new Promise((resolve, reject) => {
                   const token = sessionStorage.getItem('token');
                   axios.defaults.headers.common['Authorization'] = "Token " + token
-                  axios({url: 'https://vaccinsystem.herokuapp.com/livestock/LiveStock/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', method: 'GET' })
 
                       .then(resp => {
                           console.log('LIVESTOCK',resp.data)
@@ -195,7 +156,7 @@
 
                 const token = sessionStorage.getItem('token');
                 axios.defaults.headers.common['Authorization'] = "Token " + token
-                axios({url: 'https://vaccinsystem.herokuapp.com/livestock/LiveStock/', method: 'GET' })
+                axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', method: 'GET' })
 
                     .then(resp => {
                         console.log('LIVESTOCK',resp.data)
