@@ -63,7 +63,7 @@
                     console.log(axios.defaults.headers, 'headers in get');
 
                     //get Department
-                    axios({url: 'https://vaccinsystem.herokuapp.com/farmer/Village/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/farmer/Village/', method: 'GET' })
 
                         .then(resp => {
                             console.log('getVillage',resp.data)
@@ -94,7 +94,7 @@
             //
             //         console.log(axios.defaults.headers, 'headers in get');
             //
-            //         axios({url: 'https://vaccinsystem.herokuapp.com/employee/Department/', method: 'GET' })
+            //         axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
             //
             //             .then(resp => {
             //                 console.log('DEPATRMENT',resp.data)
@@ -119,7 +119,7 @@
 
 
                     //get Department
-                    axios({url: 'https://vaccinsystem.herokuapp.com/employee/Department/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
 
                         .then(resp => {
                             console.log('DEPARTMENT',resp.data)
@@ -133,7 +133,7 @@
 
 
                     //get Speciality
-                    axios({url: 'https://vaccinsystem.herokuapp.com/employee/EmployeeType/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/employee/EmployeeType/', method: 'GET' })
 
                         .then(resp => {
                             console.log('SPECIALITY',resp.data)
@@ -146,7 +146,7 @@
                         })
 
                     //get Sel'skii okrug
-                    axios({url: 'https://vaccinsystem.herokuapp.com/employee/EmployeeType/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/employee/EmployeeType/', method: 'GET' })
 
                         .then(resp => {
                             console.log('OKRUG',resp.data)
@@ -160,7 +160,7 @@
 
 
                     //
-                    // axios({url: 'https://vaccinsystem.herokuapp.com/employee/Department/', method: 'GET' })
+                    // axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
                     //
                     //     .then(resp => {
                     //         console.log('EXAMPLE',resp.data)
@@ -177,16 +177,16 @@
 
 
                 // console.log("CREATED CLICKED")
-                // this.$http.get('https://vaccinsystem.herokuapp.com/employee/Department/').then(function (data) {
+                // this.$http.get('http://185.22.65.39:7000/employee/Department/').then(function (data) {
                 //   this.todos = data.body
                 //   console.log("QWERTYUIOP{",data)
                 // })
-                // this.$http.get('https://vaccinsystem.herokuapp.com/employee/EmployeeType/').then(function (data) {
+                // this.$http.get('http://185.22.65.39:7000/employee/EmployeeType/').then(function (data) {
                 //   this.specialities = data.body
                 //   console.log("SPECIALITY",data)
                 // })
                 //
-                // this.$http.get('https://vaccinsystem.herokuapp.com/employee/Employee/').then(function (data) {
+                // this.$http.get('http://185.22.65.39:7000/employee/Employee/').then(function (data) {
                 //   this.listOfEmp = data.body
                 //   console.log("listOfEmp",data)
                 // })
@@ -202,7 +202,7 @@
             //     axios.defaults.headers.common['Authorization'] = "Token " + token
             //     console.log(axios.defaults.headers, 'headers in get');
             //
-            //     axios({url: 'https://vaccinsystem.herokuapp.com/employee/Employee/', method: 'GET' })
+            //     axios({url: 'http://185.22.65.39:7000/employee/Employee/', method: 'GET' })
             //
             //         .then(resp => {
             //             console.log('OKRUG',resp.data)
@@ -269,7 +269,7 @@
 
 
 
-                // this.$http.post('https://vaccinsystem.herokuapp.com/employee/Employee/',{
+                // this.$http.post('http://185.22.65.39:7000/employee/Employee/',{
                 //   id: this.IIN,
                 //   employeeskey: this.passw,
                 //   name: this.fio,

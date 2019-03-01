@@ -69,7 +69,7 @@ export default {
 
 
             // $.ajax({
-            //     url: "https://vaccinsystem.herokuapp.com/api-token-auth/ ",
+            //     url: "http://185.22.65.39:7000/api-token-auth/ ",
             //     type: "POST",
             //     data: {
             //         username: this.login,

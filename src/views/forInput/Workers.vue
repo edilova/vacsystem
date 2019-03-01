@@ -223,7 +223,7 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  axios({url: 'https://vaccinsystem.herokuapp.com/employee/Employee/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/employee/Employee/', method: 'GET' })
 
                       .then(resp => {
                           console.log('getWorkers',resp.data)
@@ -247,7 +247,7 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  axios({url: 'https://vaccinsystem.herokuapp.com/employee/Employee/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/employee/Employee/', method: 'GET' })
 
                       .then(resp => {
                           console.log('getWorkers',resp.data)
@@ -271,7 +271,7 @@
 
 
                   //get Department
-                  axios({url: 'https://vaccinsystem.herokuapp.com/employee/Department/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
 
                       .then(resp => {
                           console.log('DEPARTMENT',resp.data)
@@ -285,7 +285,7 @@
 
 
                   //get Speciality
-                  axios({url: 'https://vaccinsystem.herokuapp.com/employee/EmployeeType/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/employee/EmployeeType/', method: 'GET' })
 
                       .then(resp => {
                           console.log('SPECIALITY',resp.data)
@@ -298,7 +298,7 @@
                       })
 
                   //get Sel'skii okrug
-                  axios({url: 'https://vaccinsystem.herokuapp.com/farmer/RuralDistrict/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/farmer/RuralDistrict/', method: 'GET' })
 
                       .then(resp => {
                           console.log('OKRUG',resp.data)

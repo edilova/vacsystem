@@ -1458,9 +1458,9 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  // axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
+                  // axios({url: 'http://185.22.65.39:7000//vaccination/Vaccination/', method: 'GET' })
 
-                  // axios({url: 'https://vaccinsystem.herokuapp.com/farmer/Farmer/', method: 'GET' })
+                  // axios({url: 'http://185.22.65.39:7000//farmer/Farmer/', method: 'GET' })
                   //
                   //     .then(resp => {
                   //         console.log('getVAC',resp.data)
@@ -1476,7 +1476,7 @@
 
 
                   //get Department
-                  axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019' , method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019' , method: 'GET' })
 
                       .then(resp => {
                           // console.log('getFarmer',resp.data)
@@ -1561,8 +1561,8 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  // axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
-                  axios({url: 'https://vaccinsystem.herokuapp.com/farmer/Farmer/?id='+this.filtername, method: 'GET' })
+                  // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
 
                       .then(resp => {
                           console.log('getFiltered',resp.data)
@@ -1590,8 +1590,8 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  // axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Vaccination/', method: 'GET' })
-                  axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019', method: 'GET' })
+                  // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019', method: 'GET' })
 
                       .then(resp => {
                           console.log('getFiltered2',resp.data)

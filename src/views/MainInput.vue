@@ -37,7 +37,7 @@
                     console.log(axios.defaults.headers, 'headers in get');
 
                     //get Department
-                    axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000//employee/Department/', method: 'GET' })
 
                         .then(resp => {
                             console.log('DEPARTMENT',resp.data)

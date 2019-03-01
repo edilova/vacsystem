@@ -118,11 +118,11 @@
       methods:{
         created() {
           console.log("CREATED CLICKED")
-          this.$http.get('https://vaccinsystem.herokuapp.com/employee/Department/').then(function (data) {
+          this.$http.get('http://185.22.65.39:7000/employee/Department/').then(function (data) {
             this.todos = data.body
             console.log(data)
           })
-          // axios.get('https://vaccinsystem.herokuapp.com/vaccination/Disease/',{
+          // axios.get('http://185.22.65.39:7000/vaccination/Disease/',{
           // headers: {
           //   "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU0NDUyNTM3NSwianRpIjoiZTYzMDU1NjA1OTBiNDcwZGJhOTgyMzE4MjkwNmM4Y2UiLCJ1c2VyX2lkIjoxfQ.bKKcgeb907surGnP8BpZ6DPxQlvMJLZneZ-XztTQ6T0",
           //   "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTQ0NDM5Mjc1LCJqdGkiOiJhNTM5YjliZjA1ZWQ0Y2Q4ODU2YTE3ODQ2NzBjZTg5OSIsInVzZXJfaWQiOjF9.gpiEroljGTodTa_bp3W_EQUQM7DE6u_ZW6yKpr0Yduk"

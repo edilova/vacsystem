@@ -104,7 +104,7 @@ export default {
               axios.defaults.headers.common['Authorization'] = "Token " + token
               console.log(axios.defaults.headers, 'headers in get');
 
-              axios({url: 'https://vaccinsystem.herokuapp.com/livestock/LiveStock/', method: 'GET' })
+              axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', method: 'GET' })
 
                   .then(resp => {
                       console.log('getLivestock',resp.data)

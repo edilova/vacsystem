@@ -118,7 +118,7 @@
                     console.log(axios.defaults.headers, 'headers in get');
 
                     //get Suit
-                    axios({url: 'https://vaccinsystem.herokuapp.com/livestock/Suit/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/livestock/Suit/', method: 'GET' })
 
                         .then(resp => {
                             console.log('GET SUIT',resp.data)
@@ -131,7 +131,7 @@
                         })
 
                     //get Farmer
-                    axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Disease/', method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/vaccination/Disease/', method: 'GET' })
 
                         .then(resp => {
                             console.log('GET DISEAES',resp.data)
@@ -172,7 +172,7 @@
 
                 this.$router.push('/vaccination')
 
-                axios({url: 'https://vaccinsystem.herokuapp.com/vaccination/Medicine/', method: 'GET' })
+                axios({url: 'http://185.22.65.39:7000/vaccination/Medicine/', method: 'GET' })
 
                     .then(resp => {
                         console.log('getMedicine',resp.data)

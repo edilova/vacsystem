@@ -99,7 +99,7 @@
       mounted() {
           const token = sessionStorage.getItem('token');
           axios.defaults.headers.common['Authorization'] = "Token " + token
-          axios.get('http://185.22.65.39:7000/livestock/LiveStock/')
+          axios.get('http://185.22.65.39:7000//livestock/LiveStock/')
               .then(response => {
                   // this.logItems = response.data // this bit works fine
                   this.responseData = response
@@ -130,7 +130,7 @@
               return new Promise((resolve, reject) => {
                   const token = sessionStorage.getItem('token');
                   axios.defaults.headers.common['Authorization'] = "Token " + token
-                  axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000//livestock/LiveStock/', method: 'GET' })
 
                       .then(resp => {
                           console.log('LIVESTOCK',resp.data)
@@ -156,7 +156,7 @@
 
                 const token = sessionStorage.getItem('token');
                 axios.defaults.headers.common['Authorization'] = "Token " + token
-                axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', method: 'GET' })
+                axios({url: 'http://185.22.65.39:7000//livestock/LiveStock/', method: 'GET' })
 
                     .then(resp => {
                         console.log('LIVESTOCK',resp.data)
