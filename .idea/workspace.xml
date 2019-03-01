@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbb54b99-2c62-471a-9408-caab4c43373f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Main.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/685d37bc7bb5443b6a89d271ac575e1c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/685d37bc7bb5443b6a89d271ac575e1c.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/7cad637935036b87dd3139ccdd2b6824.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/7cad637935036b87dd3139ccdd2b6824.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9eacc340e31c5a124a24856f232a8140.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9eacc340e31c5a124a24856f232a8140.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/de0e64e369c0bb5cc28a1d7db6ad6750.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/de0e64e369c0bb5cc28a1d7db6ad6750.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/01b2ad2e8643991387f71a2c3ce693dc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/01b2ad2e8643991387f71a2c3ce693dc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/2318084dfe5a314120fd59eed613fb42.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/2318084dfe5a314120fd59eed613fb42.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/2e182f233b5f68b63fcac30c56ac34bb.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/2e182f233b5f68b63fcac30c56ac34bb.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/3573fb6ec3ad01378180ce7d071417dc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/3573fb6ec3ad01378180ce7d071417dc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/402a483d004651f24d83e6535e544f37.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/402a483d004651f24d83e6535e544f37.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/426ae996e0deacb9800aaaf01459efe4.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/426ae996e0deacb9800aaaf01459efe4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/828724ad786199719081142b6e351c29.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/828724ad786199719081142b6e351c29.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/8bd56e2e976aebd21e61fac428eb6695.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/8bd56e2e976aebd21e61fac428eb6695.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/a983c818523ba82f174cb760e41f2d9e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/a983c818523ba82f174cb760e41f2d9e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/ac2e0abe5f315ec07a6e4b24f00c79cf.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/ac2e0abe5f315ec07a6e4b24f00c79cf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/adfc9a427fc15e07db0304f25e3c6aff.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/adfc9a427fc15e07db0304f25e3c6aff.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/c50c73c9f3201523a2ea3646d9d4ea65.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/c50c73c9f3201523a2ea3646d9d4ea65.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/f5e5a2697c2b571876d0c218cd9ee451.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/f5e5a2697c2b571876d0c218cd9ee451.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,7 +49,7 @@
           <entry key="html" value="102" />
           <entry key="js" value="1242" />
           <entry key="scss" value="44" />
-          <entry key="txt" value="116" />
+          <entry key="txt" value="172" />
           <entry key="vue" value="9928" />
         </counts>
       </usages-collector>
@@ -45,7 +57,7 @@
         <counts>
           <entry key="HTML" value="102" />
           <entry key="JavaScript" value="1242" />
-          <entry key="PLAIN_TEXT" value="116" />
+          <entry key="PLAIN_TEXT" value="172" />
           <entry key="SCSS" value="44" />
           <entry key="Vue.js" value="9928" />
         </counts>
@@ -307,7 +319,7 @@
       <workItem from="1550042154804" duration="1103000" />
       <workItem from="1550054798869" duration="445000" />
       <workItem from="1550372642652" duration="29492000" />
-      <workItem from="1551454861516" duration="725000" />
+      <workItem from="1551454861516" duration="957000" />
     </task>
     <task id="LOCAL-00001" summary="first commit&#10;tut back nachat v main i workers">
       <created>1544627499794</created>
@@ -330,17 +342,23 @@
       <option name="project" value="LOCAL" />
       <updated>1550601220310</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor and changing api path">
+      <created>1551455779292</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1551455779292</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129744000" />
+    <option name="totallyTimeSpent" value="129976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -352,7 +370,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28554216" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28554216" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -370,7 +388,8 @@
     <MESSAGE value="first commit&#10;tut back nachat v main i workers" />
     <MESSAGE value="connection with back end" />
     <MESSAGE value="commit for Aru &lt;3" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for Aru &lt;3" />
+    <MESSAGE value="refactor and changing api path" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor and changing api path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
