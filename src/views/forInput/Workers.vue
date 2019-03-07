@@ -36,8 +36,6 @@
             </tbody>
           </table>
           <nav>
-            <!--<b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" prev-text="Prev" next-text="Next" hide-goto-end-buttons/>-->
-
             <div class="pagination d-flex flex-row justify-content-between w-100">
               <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
                 <b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>
@@ -45,9 +43,6 @@
               <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
                 <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
               </b-col>
-              <!--<b-button block variant="primary"  class="text-left" @click="pagebtnPrevious">Пред</b-button>-->
-              <!--&lt;!&ndash;<p class="m-0 text-center">{{pageid}}</p>&ndash;&gt;-->
-              <!--<b-button block variant="primary"  class="text-right" @click="pagebtnNext">След</b-button>-->
             </div>
           </nav>
         </b-card>

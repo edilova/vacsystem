@@ -21,6 +21,15 @@
                       </tr>
                       </tbody>
                   </table>
+
+                  <div class="pagination d-flex flex-row justify-content-between w-100">
+                      <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                          <b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>
+                      </b-col>
+                      <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                          <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
+                      </b-col>
+                  </div>
               </b-card>
           </div>
       </b-col>
@@ -44,6 +53,8 @@
           items: someData,
           itemsArray: someData(),
           getVillages: "",
+          linkPrev:"",
+          linkNext:"",
           fields: [
             {key: 'поселок', label: 'User', sortable: true}
           ],
@@ -53,6 +64,60 @@
             this.fetchData();
         },
         methods:{
+            pagebtnPrevious(){
+                return new Promise((resolve, reject) => {
+                    // commit('auth_request')
+                    console.log('promise example ');
+                    const token = sessionStorage.getItem('token');
+                    axios.defaults.headers.common['Authorization'] = "Token " + token
+                    console.log(axios.defaults.headers, 'headers in get');
+
+                    //get Department
+                    axios({url: this.linkPrev, method: 'GET' })
+
+                        .then(resp => {
+                            console.log('getVillages',resp.data)
+                            this.getVillages = resp.data.results
+                            this.linkPrev = resp.data.links.previous
+                            this.linkNext = resp.data.links.next
+                            // this.getFarmerLength = resp.data.count % 100
+                            console.log('LENGTHHHHH', resp.data.count)
+                            resolve(resp)
+
+
+                        })
+                        .catch(err => {console.log(err)
+                        })
+
+                })
+            },
+            pagebtnNext(){
+                return new Promise((resolve, reject) => {
+                    // commit('auth_request')
+                    console.log('promise example ');
+                    const token = sessionStorage.getItem('token');
+                    axios.defaults.headers.common['Authorization'] = "Token " + token
+                    console.log(axios.defaults.headers, 'headers in get');
+
+                    //get Department
+                    axios({url: this.linkNext, method: 'GET' })
+
+                        .then(resp => {
+                            console.log('getVillages',resp.data)
+                            this.getVillages = resp.data.results
+                            this.linkPrev = resp.data.links.previous
+                            this.linkNext = resp.data.links.next
+                            // this.getFarmerLength = resp.data.count % 100
+                            console.log('LENGTHHHHH', resp.data.count)
+                            resolve(resp)
+
+
+                        })
+                        .catch(err => {console.log(err)
+                        })
+
+                })
+            },
 
             fetchData: function () {
                 return new Promise((resolve, reject) => {
@@ -68,6 +133,8 @@
                         .then(resp => {
                             console.log('getVillage',resp.data)
                             this.getVillages = resp.data.results
+                            this.linkPrev = resp.data.links.previous
+                            this.linkNext = resp.data.links.next
                             resolve(resp)
 
 
