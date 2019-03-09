@@ -401,14 +401,14 @@
                         label-for="basicName"
                         :label-cols="3"
                         :horizontal="true">
-                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername2"></b-form-input>
                 </b-form-group>
 
                 <b-form-group
                         label="Начало" label-for="date"
                         :label-cols="3"
                         :horizontal="true">
-                  <b-form-input type="date" id="date"></b-form-input>
+                  <b-form-input type="date" id="date" v-model="startdate"></b-form-input>
                 </b-form-group>
 
 
@@ -416,7 +416,7 @@
                         label="Конец" label-for="date"
                         :label-cols="3"
                         :horizontal="true">
-                  <b-form-input type="date" id="date"></b-form-input>
+                  <b-form-input type="date" id="date" v-model="enddate"></b-form-input>
                 </b-form-group>
 
 
@@ -1324,14 +1324,18 @@
             oblast: 'Алматинская Область',
             getVAC: "",
             filtername:"",
+            filtername2:"",
             getFiltered:"",
             getFiltered2:"",
+            filterid:"",
             dataPage:"notdata",
             dataPage1: "notdata1",
             dataPage2: "notdata2",
             dataPage3: "notdata3",
             linkPrev:"",
             linkNext:"",
+            startdate:"",
+            enddate:"",
           options: [
             { value: null, text: 'Please select an option' },
             { value: 'Australia', text: 'Australia' },
@@ -1508,7 +1512,7 @@
 
                       .then(resp => {
                           console.log('get',resp.data)
-                          this.getFarmer = resp.data.results
+                          this.getFiltered2 = resp.data.results
                           this.linkPrev = resp.data.links.previous
                           this.linkNext = resp.data.links.next
                           this.getFarmerLength = resp.data.count % 100
@@ -1535,7 +1539,7 @@
 
                       .then(resp => {
                           console.log('get',resp.data)
-                          this.getFarmer = resp.data.results
+                          this.getFiltered2 = resp.data.results
                           this.linkPrev = resp.data.links.previous
                           this.linkNext = resp.data.links.next
                           this.getFarmerLength = resp.data.count % 100
@@ -1591,7 +1595,7 @@
 
                   //get Department
                   // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filterid+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
                       .then(resp => {
                           console.log('getFiltered2',resp.data)
