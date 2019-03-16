@@ -71,9 +71,9 @@
         <b-dropdown  id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
           <b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report1')">Отчет 3</b-dropdown-item>-->
+          <b-dropdown-item v-on:click="reportId('report1')">Отчет вакцинированных животных</b-dropdown-item>
           <b-dropdown-item v-on:click="reportId('report2')">Отчет по датам</b-dropdown-item>
-          <!--<b-dropdown-item v-on:click="reportId('report3')">Информация по количеству снятых животных у владельца </b-dropdown-item>-->
+          <!--<b-dropdown-item v-on:click="reportId('report3')">Отчет вакцинированных животных</b-dropdown-item>-->
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
           <!--<b-dropdown-item v-on:click="reportId('report6')">Информация по половозрастным группам животных</b-dropdown-item>-->
@@ -95,21 +95,21 @@
 
           <div  v-show="dataPage == 'notdata'">
             <b-card>
-            <h5 class="text-center mb-3">Информация о владельце по ИИН или имени</h5>
+              <h5 class="text-center mb-3">Информация о владельце по ИИН или имени</h5>
 
-            <b-form>
-              <b-form-group
-                      label="ИИН или имя владельца:"
-                      label-for="basicName"
-                      :label-cols="3"
-                      :horizontal="true">
-                <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
-              </b-form-group>
+              <b-form>
+                <b-form-group
+                        label="ИИН или имя владельца:"
+                        label-for="basicName"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+                </b-form-group>
 
-            </b-form>
-            <div class="form-actions">
-              <b-button type="submit" variant="primary" @click="repostRequest('data')">Сформировать</b-button>
-            </div>
+              </b-form>
+              <div class="form-actions">
+                <b-button type="submit" variant="primary" @click="repostRequest('data')">Сформировать</b-button>
+              </div>
             </b-card>
           </div>
           <div  v-show="dataPage == 'data'">
@@ -173,23 +173,6 @@
                 </tr>
                 </tbody>
               </table>
-              <!--<div class="form-actions">-->
-              <!--<downloadexcel-->
-              <!--class = "btn"-->
-              <!--:data = "json_data"-->
-              <!--:fields = "json_fields"-->
-
-              <!--type    = "csv">-->
-
-              <!--<b-button type="submit" variant="primary">Сформировать</b-button>-->
-              <!--&lt;!&ndash;Download Excel&ndash;&gt;-->
-              <!--</downloadexcel>-->
-
-
-              <!--&lt;!&ndash;<b-button type="submit" variant="primary" @click="createPDF">createPDF</b-button>&ndash;&gt;-->
-              <!--&lt;!&ndash;<button @click="generate">Generate PDF</button>&ndash;&gt;-->
-
-              <!--</div>-->
             </b-card>
           </div>
 
@@ -198,7 +181,7 @@
 
           <div  v-show="dataPage1 == 'notdata1'">
             <b-card>
-              <h5 class="text-center mb-3">Информация о вакцинации и дате животного </h5>
+              <h5 class="text-center mb-3">Общая информация </h5>
 
               <b-form>
                 <b-form-group
@@ -324,7 +307,7 @@
         <div v-show="isReport =='report1'">
           <div  v-show="dataPage2 == 'notdata2'">
             <b-card>
-              <h5 class="text-center mb-3">Информация о вакцинации и дате животного gfewfew</h5>
+              <h5 class="text-center mb-3">Информация о провакцинированных животных</h5>
 
               <b-form>
                 <b-form-group
@@ -332,60 +315,61 @@
                         label-for="basicName"
                         :label-cols="3"
                         :horizontal="true">
-                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername"></b-form-input>
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername2"></b-form-input>
                 </b-form-group>
+
+                <b-form-group
+                        label="Начало" label-for="date"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input type="date" id="date" v-model="startdate"></b-form-input>
+                </b-form-group>
+
+
+                <b-form-group
+                        label="Конец" label-for="date"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input type="date" id="date" v-model="enddate"></b-form-input>
+                </b-form-group>
+
 
               </b-form>
               <div class="form-actions">
-                <b-button type="submit" variant="primary" @click="repostRequest('data2')">Сформировать</b-button>
+                <b-button type="submit" variant="primary" @click="repostRequest2('data2')">Сформировать</b-button>
               </div>
             </b-card>
           </div>
+
           <div  v-show="dataPage == 'data2'">
             <b-card>
-              <!--<div v-for="nam in getFiltered2">-->
-                <!--<p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце rwgwwwwww</p>-->
-              <!--</div>-->
-
-
-              <!--<div>-->
-                <!--<table id="basic-table" class="table">-->
-                  <!--<thead>-->
-                  <!--<tr v-for="fer in getFiltered2">-->
-                    <!--<th scope="col"></th>-->
-                    <!--<th scope="col">{{fer.medicine}}</th>-->
-                  <!--</tr>-->
-                  <!--</thead>-->
-
-                  <!--<tbody v-for="cv in fer.livestocks">-->
-                  <!--<tr v-for="fil in cv.vaccinations">-->
-                  <!--</tr>-->
-                  <!--</tbody>-->
-                <!--</table>-->
-              <!--</div>-->
-
-
-
-              <div v-for="nam in getFiltered">
-                <p class="mt-5" style="color:#20a8d8; font-size: 1.5rem;">Данные о Вакцинации животных владельца {{nam.name}}</p>
-              </div>
-
-
-              <div v-for="fer in getFiltered" style="overflow: scroll">
+              <div style="overflow: scroll">
                 <table id="basic-table" class="table">
-                  <thead v-for="cv in fer.livestocks">
-                    <tr >
-                      <th scope="col">Животное</th>
-                      <th scope="col" v-for="cvv in cv.vaccinations">{{cvv.medicine}}</th>
-                    </tr>
+                  <thead>
+                  <th scope="col">Владелец</th>
+                  <th scope="col">Животное</th>
+                  <th scope="col">Пол</th>
+                  <th scope="col">Возраст</th>
+                  <th scope="col">Масть</th>
                   </thead>
-                  <tbody v-for="cv in fer.livestocks">
-                    <tr>
-                      <td scope="col" >{{fer.id}}</td>
-                      <td scope="col" v-for="cvv in cv.vaccinations">{{cvv.date}}</td>
-                    </tr>
+                  <tbody>
+                  <tr v-for="fer in getFiltered2">
+                    <td scope="col">{{fer.livestock.farmer.name}} </td>
+                    <td scope="col">{{fer.livestock.id}} </td>
+                    <td scope="col">{{fer.livestock.sex.name}} </td>
+                    <td scope="col">{{fer.livestock.age}} </td>
+                    <td scope="col">{{fer.livestock.typeoflivestock.name}} </td>
+                  </tr>
                   </tbody>
                 </table>
+              </div>
+              <div class="pagination d-flex flex-row justify-content-between w-100">
+                <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                  <b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>
+                </b-col>
+                <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                  <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
+                </b-col>
               </div>
             </b-card>
           </div>
@@ -393,7 +377,7 @@
         <div v-show="isReport =='report2'">
           <div  v-show="dataPage3 == 'notdata3'">
             <b-card>
-              <h5 class="text-center mb-3">Информация о вакцинации и дате животного 3</h5>
+              <h5 class="text-center mb-3">Информация о вакцинации и дате вакцинации животного</h5>
 
               <b-form>
                 <b-form-group
@@ -428,49 +412,16 @@
           </div>
           <div  v-show="dataPage == 'data3'">
             <b-card>
-              <!--<div v-for="nam in getFiltered2">-->
-              <!--<p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце rwgwwwwww</p>-->
-              <!--</div>-->
-
-
-              <!--<div>-->
-              <!--<table id="basic-table" class="table">-->
-              <!--<thead>-->
-              <!--<tr v-for="fer in getFiltered2">-->
-              <!--<th scope="col"></th>-->
-              <!--<th scope="col">{{fer.medicine}}</th>-->
-              <!--</tr>-->
-              <!--</thead>-->
-
-              <!--<tbody v-for="cv in fer.livestocks">-->
-              <!--<tr v-for="fil in cv.vaccinations">-->
-              <!--</tr>-->
-              <!--</tbody>-->
-              <!--</table>-->
-              <!--</div>-->
-
-
-
-              <!--<div v-for="nam in getFiltered">-->
-                <!--<p class="mt-5" style="color:#20a8d8; font-size: 1.5rem;">Otchet 3</p>-->
-              <!--</div>-->
-
-
               <div style="overflow: scroll">
                 <table id="basic-table" class="table">
                   <thead>
-                  <!--<tr v-for="med in fer.medicine">-->
                     <th scope="col">Животное</th>
-                    <!--<th scope="col">{{fer.id}}</th>-->
                     <th scope="col" v-for="ferr in getFiltered2">{{ferr.medicine.name}}</th>
-                    <!--<th scope="col" v-for="ferr in getFiltered2">{{ferr.id}}</th>-->
-                  <!--</tr>-->
                   </thead>
                   <tbody>
                   <tr v-for="fer in getFiltered2">
                     <td scope="col">{{fer.livestock.id}} </td>
                     <td scope="col" v-for="fer in getFiltered2">{{fer.date}} </td>
-                    <!--<td scope="col">erv</td>-->
                   </tr>
                   </tbody>
                 </table>
@@ -482,83 +433,12 @@
                 <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
                   <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
                 </b-col>
-                <!--<b-button block variant="primary"  class="text-left" @click="pagebtnPrevious">Пред</b-button>-->
-                <!--&lt;!&ndash;<p class="m-0 text-center">{{pageid}}</p>&ndash;&gt;-->
-                <!--<b-button block variant="primary"  class="text-right" @click="pagebtnNext">След</b-button>-->
               </div>
             </b-card>
           </div>
         </div>
         <div v-show="isReport =='report3'">
-          <b-card>
-            <h5 class="text-center mb-3">Информация по количеству снятых животных у владельца</h5>
-            <b-form>
-              <b-form-group
-                description="Let us know your full name."
-                label="Владелец"
-                label-for="basicName"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-input id="basicName" type="text" autocomplete="name"></b-form-input>
-              </b-form-group>
 
-
-              <b-form-group
-                label="Вид животного"
-                label-for="basicSelect"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-select id="basicSelect"
-                               :plain="true"
-                               :options="['Please select','Option 1', 'Option 2', 'Option 3']"
-                               value="Please select">
-                </b-form-select>
-              </b-form-group>
-
-              <b-form-group
-                label="Дата"
-                label-for="basicInlineRadios"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-radio-group id="basicInlineRadios"
-                                    :plain="true"
-                                    :options="[
-                {text: 'На дату',value: '1'},
-                {text: 'Период',value: '2'}
-              ]"
-                                    :checked="3">
-                </b-form-radio-group>
-              </b-form-group>
-
-
-
-              <b-form-group
-                label="" label-for="date"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-input type="date" id="date"></b-form-input>
-              </b-form-group>
-
-
-
-              <b-form-group
-                label="По области"
-                label-for="basicSelect"
-                :label-cols="3"
-                :horizontal="true">
-                <b-form-select id="basicSelect"
-                               :plain="true"
-                               :options="['Please select','Option 1', 'Option 2', 'Option 3']"
-                               value="Please select">
-                </b-form-select>
-              </b-form-group>
-
-
-            </b-form>
-            <div class="form-actions">
-              <b-button type="submit" variant="primary">Сформировать</b-button>
-            </div>
-          </b-card>
         </div>
         <div v-show="isReport =='report5'" >
           <b-card>
@@ -1461,40 +1341,25 @@
                   axios.defaults.headers.common['Authorization'] = "Token " + token
                   console.log(axios.defaults.headers, 'headers in get');
 
-                  //get Department
-                  // axios({url: 'http://185.22.65.39:7000//vaccination/Vaccination/', method: 'GET' })
 
-                  // axios({url: 'http://185.22.65.39:7000//farmer/Farmer/', method: 'GET' })
+
+
+                  //get Department
+                  // axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019' , method: 'GET' })
                   //
                   //     .then(resp => {
-                  //         console.log('getVAC',resp.data)
-                  //         this.getVAC = resp.data.results
+                  //         // console.log('getFarmer',resp.data)
+                  //         this.getFarmer = resp.data.results
+                  //         this.linkPrev = resp.data.links.previous
+                  //         this.linkNext = resp.data.links.next
+                  //         this.getFarmerLength = resp.data.count % 100
+                  //         // console.log('LENGTHHHHH', resp.data.count)
                   //         resolve(resp)
                   //
                   //
                   //     })
                   //     .catch(err => {console.log(err)
                   //     })
-                  //
-
-
-
-                  //get Department
-                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019' , method: 'GET' })
-
-                      .then(resp => {
-                          // console.log('getFarmer',resp.data)
-                          this.getFarmer = resp.data.results
-                          this.linkPrev = resp.data.links.previous
-                          this.linkNext = resp.data.links.next
-                          this.getFarmerLength = resp.data.count % 100
-                          // console.log('LENGTHHHHH', resp.data.count)
-                          resolve(resp)
-
-
-                      })
-                      .catch(err => {console.log(err)
-                      })
 
 
               })
@@ -1594,8 +1459,9 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
+                  console.log("chto otpr",this.filtername2)
                   // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filterid+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
                       .then(resp => {
                           console.log('getFiltered2',resp.data)
