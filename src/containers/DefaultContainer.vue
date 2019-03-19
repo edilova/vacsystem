@@ -24,7 +24,7 @@
         <!--<b-nav-item class="d-md-down-none">-->
           <!--<i class="icon-location-pin"></i>-->
         <!--</b-nav-item>-->
-        <b-nav-item class="px-3" @click="logout" exact>Log out</b-nav-item>
+        <b-nav-item class="px-3" @click="logout" exact>Выйти</b-nav-item>
         <!--<DefaultHeaderDropdownAccnt/>-->
       </b-navbar-nav>
       <!--<AsideToggler class="d-none d-lg-block" />-->

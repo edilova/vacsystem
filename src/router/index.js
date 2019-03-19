@@ -49,6 +49,8 @@ const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Logon = () => import('@/views/pages/Logon')
 const Register = () => import('@/views/pages/Register')
+const Print = () => import('@/views/Print')
+
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -236,6 +238,11 @@ let router =  new Router({
         },
       ]
     },
+      {
+          path: '/print',
+          name: 'Печать',
+          component: Print,
+      },
       {
           path: '/login',
           name: 'Login',

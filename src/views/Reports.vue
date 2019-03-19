@@ -69,7 +69,8 @@
         </table>
 
         <b-dropdown  id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
-          <b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>
+          <!--<b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>-->
+          <b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
           <b-dropdown-item v-on:click="reportId('report1')">Отчет вакцинированных животных</b-dropdown-item>
           <b-dropdown-item v-on:click="reportId('report2')">Отчет по датам</b-dropdown-item>
@@ -114,6 +115,9 @@
           </div>
           <div  v-show="dataPage == 'data'">
             <b-card>
+              <button @click="print()">
+                Печать
+              </button>
               <div v-for="nam in getFiltered">
                 <p class="mt-1" style="color:#20a8d8; font-size: 1.5rem;">Данные о владельце {{nam.name}}</p>
               </div>
@@ -1364,6 +1368,14 @@
 
               })
           },
+          print(){
+              // this.$router.push('/print')
+              let username = this.filtername
+              this.$store.dispatch('printreport1', { username })
+                  .then(() => this.$router.push('/print'))
+                  .catch(err => console.log(err))
+          },
+
           pagebtnPrevious(){
               return new Promise((resolve, reject) => {
                   // commit('auth_request')
@@ -1434,6 +1446,7 @@
                   axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
 
                       .then(resp => {
+                          this.$router.push('/print')
                           console.log('getFiltered',resp.data)
                           this.getFiltered = resp.data.results
                           this.linkPrev = resp.data.links.previous
@@ -1490,6 +1503,7 @@
                   .catch(err => console.log(err))
 
           },
+
           createPDF () {
               let pdfName = 'test';
               var doc = new jsPDF();

@@ -68,6 +68,29 @@ export default new Vuex.Store({
                     })
             })
         },
+        // printreport1({commit}, report){
+        //     console.log("report",report)
+        //     return new Promise((resolve, reject) => {
+        //
+        //         const token = sessionStorage.getItem('token');
+        //         axios.defaults.headers.common['Authorization'] = "Token " + token
+        //
+        //         axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
+        //
+        //             .then(resp => {
+        //                 console.log('getFiltered',resp.data)
+        //                 this.getFiltered = resp.data.results
+        //                 this.linkPrev = resp.data.links.previous
+        //                 this.linkNext = resp.data.links.next
+        //                 console.log("ceeewf", this.getFiltered.results.livestocks)
+        //                 resolve(resp)
+        //
+        //
+        //             })
+        //             .catch(err => {console.log(err)
+        //             })
+        //     })
+        // },
 
         createVillage({commit}, village){
             return new Promise((resolve, reject) => {
