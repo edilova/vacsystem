@@ -72,8 +72,8 @@
           <!--<b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>-->
           <b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
-          <b-dropdown-item v-on:click="reportId('report1')">Отчет вакцинированных животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="reportId('report2')">Отчет по датам</b-dropdown-item>
+          <b-dropdown-item v-on:click="repostRequest2('report1')">Отчет вакцинированных животных</b-dropdown-item>
+          <b-dropdown-item v-on:click="repostRequest3('report2')">Отчет по датам</b-dropdown-item>
           <!--<b-dropdown-item v-on:click="reportId('report3')">Отчет вакцинированных животных</b-dropdown-item>-->
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
@@ -1477,6 +1477,38 @@
                   axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
                       .then(resp => {
+                          this.$router.push('/print2')
+                          console.log('getFiltered2',resp.data)
+                          this.getFiltered2 = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          // console.log("Get Filtered2", this.getFiltered2.results)
+                          resolve(resp)
+
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+              })
+          },
+          repostRequest3($FullName){
+              this.dataPage = $FullName
+              this.dataPage1 = $FullName
+              return new Promise((resolve, reject) => {
+                  // commit('auth_request')
+                  console.log('promise example ');
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  console.log(axios.defaults.headers, 'headers in get');
+
+                  //get Department
+                  console.log("chto otpr",this.filtername2)
+                  // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
+
+                      .then(resp => {
+                          this.$router.push('/print3')
                           console.log('getFiltered2',resp.data)
                           this.getFiltered2 = resp.data.results
                           this.linkPrev = resp.data.links.previous

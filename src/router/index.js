@@ -49,7 +49,9 @@ const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Logon = () => import('@/views/pages/Logon')
 const Register = () => import('@/views/pages/Register')
-const Print = () => import('@/views/Print')
+const Print = () => import('@/views/print/Print')
+const Print2 = () => import('@/views/print/Print2')
+const Print3 = () => import('@/views/print/Print3')
 
 
 // Users
@@ -242,6 +244,16 @@ let router =  new Router({
           path: '/print',
           name: 'Печать',
           component: Print,
+      },
+      {
+          path: '/print2',
+          name: 'Печать',
+          component: Print2,
+      },
+      {
+          path: '/print3',
+          name: 'Печать',
+          component: Print3,
       },
       {
           path: '/login',

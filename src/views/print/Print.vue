@@ -96,7 +96,7 @@
     import downloadexcel from "vue-json-excel";
     import axios from 'axios';
     import { shuffleArray } from '@/shared/utils'
-    import cTable from './base/Table.vue'
+    import cTable from '../base/Table.vue'
     import jsPDF from 'jspdf'
 
     const someData = () => shuffleArray([
