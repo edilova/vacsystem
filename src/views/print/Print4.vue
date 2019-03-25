@@ -2,7 +2,7 @@
     <div>
         <div  v-show="dataPage2 == 'notdata2'">
             <b-card>
-                <h5 class="text-center mb-3">Информация о провакцинированных животных</h5>
+                <h5 class="text-center mb-3">Отчет сбора крови</h5>
 
                 <b-form>
                     <b-form-group
@@ -42,19 +42,20 @@
                 <div style="overflow: scroll">
                     <table id="basic-table" class="table">
                         <thead>
-                        <th scope="col">Владелец</th>
                         <th scope="col">Животное</th>
-                        <th scope="col">Пол</th>
-                        <th scope="col">Возраст</th>
                         <th scope="col">Масть</th>
+                        <th scope="col">Вид животного</th>
+                        <th scope="col">Номер пробирки</th>
                         </thead>
                         <tbody>
                         <tr v-for="fer in getFiltered2">
-                            <td scope="col">{{fer.name}} </td>
-                            <td scope="col" v-for="lv1 in fer.livestocks">{{lv1.id}} </td>
-                            <td scope="col" v-for="lv2 in fer.livestocks">{{lv2.sex.name}} </td>
-                            <td scope="col" v-for="lv3 in fer.livestocks">{{lv3.age}} </td>
-                            <td scope="col" v-for="lv4 in fer.livestocks">{{lv4.typeoflivestock.name}} </td>
+                            <td scope="col">{{fer.livestock.id}} </td>
+                            <td scope="col">{{fer.id}} </td>
+                            <td scope="col">{{fer.livestock.typeoflivestock.name}} </td>
+                            <!--<td scope="col" v-for="lv1 in fer.livestocks">{{lv1.id}} </td>-->
+                            <!--<td scope="col" v-for="lv2 in fer.livestocks">{{lv2.sex.name}} </td>-->
+                            <!--<td scope="col" v-for="lv3 in fer.livestocks">{{lv3.age}} </td>-->
+                            <!--<td scope="col" v-for="lv4 in fer.livestocks">{{lv4.typeoflivestock.name}} </td>-->
                             <!--<td scope="col">{{fer.livestocks.age}} </td>-->
                             <!--<td scope="col">{{fer.livestocks.typeoflivestock.name}} </td>-->
                         </tr>
@@ -252,10 +253,10 @@
                     //get Department
                     console.log("chto otpr",this.filtername2)
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                    axios({url: 'http://185.22.65.39:7000/farmer/TableFarmer/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/vaccination/TableBloodTest/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
                         .then(resp => {
-                            console.log('getFiltered2',resp.data)
+                            console.log('PRINT 4 BLOOD TEST',resp.data)
                             this.getFiltered2 = resp.data.results
                             this.linkPrev = resp.data.links.previous
                             this.linkNext = resp.data.links.next

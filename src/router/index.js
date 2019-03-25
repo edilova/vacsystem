@@ -52,6 +52,7 @@ const Register = () => import('@/views/pages/Register')
 const Print = () => import('@/views/print/Print')
 const Print2 = () => import('@/views/print/Print2')
 const Print3 = () => import('@/views/print/Print3')
+const Print4 = () => import('@/views/print/Print4')
 
 
 // Users
@@ -254,6 +255,11 @@ let router =  new Router({
           path: '/print3',
           name: 'Печать',
           component: Print3,
+      },
+      {
+          path: '/print4',
+          name: 'Печать',
+          component: Print4,
       },
       {
           path: '/login',

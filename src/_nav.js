@@ -108,11 +108,11 @@ export default {
       url: '/mainInput',
       icon: 'icon-pencil'
     },
-      {
-          name: 'Отчеты',
-          url: '/print',
-          icon: 'icon-pencil'
-      },
+      // {
+      //     name: 'Отчеты',
+      //     url: '/print',
+      //     icon: 'icon-pencil'
+      // },
 
     // {
     //   name: 'Icons',

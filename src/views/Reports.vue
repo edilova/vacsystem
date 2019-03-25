@@ -74,7 +74,7 @@
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
           <b-dropdown-item v-on:click="repostRequest2('report1')">Отчет вакцинированных животных</b-dropdown-item>
           <b-dropdown-item v-on:click="repostRequest3('report2')">Отчет по датам</b-dropdown-item>
-          <!--<b-dropdown-item v-on:click="reportId('report3')">Отчет вакцинированных животных</b-dropdown-item>-->
+          <b-dropdown-item v-on:click="repostRequest4('report4')">Отчет крови</b-dropdown-item>
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
           <!--<b-dropdown-item v-on:click="reportId('report6')">Информация по половозрастным группам животных</b-dropdown-item>-->
@@ -441,8 +441,68 @@
             </b-card>
           </div>
         </div>
-        <div v-show="isReport =='report3'">
+        <div v-show="isReport =='report4'">
+          <div  v-show="dataPage3 == 'notdata4'">
+            <b-card>
+              <h5 class="text-center mb-3">Информация о вакцинации и дате вакцинации животного</h5>
 
+              <b-form>
+                <b-form-group
+                        label="ИИН или имя владельца:"
+                        label-for="basicName"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input id="basicName" type="text" autocomplete="name" v-model="filtername2"></b-form-input>
+                </b-form-group>
+
+                <b-form-group
+                        label="Начало" label-for="date"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input type="date" id="date" v-model="startdate"></b-form-input>
+                </b-form-group>
+
+
+                <b-form-group
+                        label="Конец" label-for="date"
+                        :label-cols="3"
+                        :horizontal="true">
+                  <b-form-input type="date" id="date" v-model="enddate"></b-form-input>
+                </b-form-group>
+
+
+              </b-form>
+              <div class="form-actions">
+                <b-button type="submit" variant="primary" @click="repostRequest2('data3')">Сформировать</b-button>
+              </div>
+            </b-card>
+          </div>
+          <div  v-show="dataPage == 'data4'">
+            <b-card>
+              <div style="overflow: scroll">
+                <table id="basic-table" class="table">
+                  <thead>
+                  <th scope="col">Животное</th>
+                  <th scope="col" v-for="ferr in getFiltered2">{{ferr.medicine.name}}</th>
+                  </thead>
+                  <tbody>
+                  <tr v-for="fer in getFiltered2">
+                    <td scope="col">{{fer.livestock.id}} </td>
+                    <td scope="col" v-for="fer in getFiltered2">{{fer.date}} </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pagination d-flex flex-row justify-content-between w-100">
+                <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                  <b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>
+                </b-col>
+                <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
+                  <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
+                </b-col>
+              </div>
+            </b-card>
+          </div>
         </div>
         <div v-show="isReport =='report5'" >
           <b-card>
@@ -1510,6 +1570,37 @@
                       .then(resp => {
                           this.$router.push('/print3')
                           console.log('getFiltered2',resp.data)
+                          this.getFiltered2 = resp.data.results
+                          this.linkPrev = resp.data.links.previous
+                          this.linkNext = resp.data.links.next
+                          // console.log("Get Filtered2", this.getFiltered2.results)
+                          resolve(resp)
+
+
+                      })
+                      .catch(err => {console.log(err)
+                      })
+
+              })
+          },
+          repostRequest4($FullName){
+              this.dataPage = $FullName
+              this.dataPage1 = $FullName
+              return new Promise((resolve, reject) => {
+                  // commit('auth_request')
+                  console.log('promise example ');
+                  const token = sessionStorage.getItem('token');
+                  axios.defaults.headers.common['Authorization'] = "Token " + token
+                  console.log(axios.defaults.headers, 'headers in get');
+
+                  //get Department
+                  console.log("chto otpr",this.filtername2)
+                  // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
+                  axios({url: 'http://185.22.65.39:7000/farmer/TableFarmer/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
+
+                      .then(resp => {
+                          this.$router.push('/print4')
+                          console.log('PRINT 4 TABLEFARMER',resp.data)
                           this.getFiltered2 = resp.data.results
                           this.linkPrev = resp.data.links.previous
                           this.linkNext = resp.data.links.next
