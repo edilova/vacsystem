@@ -273,88 +273,7 @@
                 ],
                 items: someData,
                 itemsArray: someData(),
-                fields: [
-                    {key: 'id', label: 'User', sortable: true},
-                    {key: 'vac1'},
-                    {key: 'vac2'},
-                    {key: 'vac3'},
-                    {key: 'vac4'},
-                    {key: 'vac5'},
-                    {key: 'vac6'},
-                    {key: 'vac7'},
-                    {key: 'vac8'},
-                    {key: 'vac9'},
 
-                ],
-                json_fields: {
-                    'Номер вакцинации': 'vaccinationid',
-                    'Вакцинатор': 'vaccinator',
-                    'Номер скота': 'livestockid',
-                    'Тест крови': 'bloodtest',
-                    'Дата': 'date',
-                },
-                json_data: [
-                    {
-                        'vaccinationid': "123",
-                        'vaccinator': "3454",
-                        'livestockid': "КРС",
-                        'bloodtest': "363",
-                        'date': "2018-12-09",
-
-                    },
-                    {
-                        'vaccinationid': "43",
-                        'vaccinator': "3454",
-                        'livestockid': "МРС",
-                        'bloodtest': "5663",
-                        'date': "2018-12-09",
-
-                    },
-                    {
-                        'vaccinationid': "24",
-                        'vaccinator': "3454",
-                        'livestockid': "КРС",
-                        'bloodtest': "36",
-                        'date': "2018-12-09",
-
-                    },
-                    {
-                        'vaccinationid': "22",
-                        'vaccinator': "3454",
-                        'livestockid': "МРС",
-                        'bloodtest': "87",
-                        'date': "2018-12-09",
-
-                    },
-                    {
-                        'vaccinationid': "546",
-                        'vaccinator': "3454",
-                        'livestockid': "КРС",
-                        'bloodtest': "3632",
-                        'date': "2018-12-09",
-
-                    },
-
-                    //   {
-                    //     'oblast': 'Алматинская Область',
-                    //     'raion': 'Аксуский',
-                    //     'seok': 'Жансугуров',
-                    //     'owner': 'Имя Фамилия',
-                    //     'vidimm': 'Вид иммунизации',
-                    //     'sick': 'Болезнь',
-                    //     'numoflivestock': '456',
-                    //     'itogo': '123456',
-                    //
-                    //   }
-                ],
-                json_meta: [
-                    [
-                        {
-                            'key': 'charset',
-                            'value': 'utf-8'
-                        }
-                    ]
-                ],
             }
         },
 
@@ -490,6 +409,7 @@
                     console.log(axios.defaults.headers, 'headers in get');
 
                     //get Department
+                    console.log(this.filtername)
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
                     axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
 

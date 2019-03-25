@@ -210,35 +210,6 @@
                 })
             },
 
-            repostRequest($FullName){
-                this.dataPage = $FullName
-                this.dataPage1 = $FullName
-                return new Promise((resolve, reject) => {
-                    // commit('auth_request')
-                    console.log('promise example ');
-                    const token = sessionStorage.getItem('token');
-                    axios.defaults.headers.common['Authorization'] = "Token " + token
-                    console.log(axios.defaults.headers, 'headers in get');
-
-                    //get Department
-                    // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
-
-                        .then(resp => {
-                            console.log('getFiltered',resp.data)
-                            this.getFiltered = resp.data.results
-                            this.linkPrev = resp.data.links.previous
-                            this.linkNext = resp.data.links.next
-                            console.log("ceeewf", this.getFiltered.results.livestocks)
-                            resolve(resp)
-
-
-                        })
-                        .catch(err => {console.log(err)
-                        })
-
-                })
-            },
             repostRequest2($FullName){
                 this.dataPage = $FullName
                 this.dataPage1 = $FullName
@@ -269,18 +240,7 @@
 
                 })
             },
-            createReport(){
-                let farname = this.farname
-                console.log("Imya fermera",farname)
 
-                this.$store.dispatch('createReport', {farname})
-                    .then(() => {
-                        this.$router.push('/farmer')
-
-                    })
-                    .catch(err => console.log(err))
-
-            },
             reportId ($FullName) {
                 // now we have access to the native event
                 this.isReport = $FullName
