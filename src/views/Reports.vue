@@ -70,24 +70,14 @@
 
         <b-dropdown  id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
           <!--<b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>-->
-          <b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>
+          <!--<b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>-->
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
           <b-dropdown-item v-on:click="repostRequest2('report1')">Отчет вакцинированных животных</b-dropdown-item>
           <b-dropdown-item v-on:click="repostRequest3('report2')">Отчет по датам</b-dropdown-item>
           <b-dropdown-item v-on:click="repostRequest4('report4')">Отчет крови</b-dropdown-item>
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report6')">Информация по половозрастным группам животных</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report7')">Информация по зарегистрированным и снятым с учета животных</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report8')">Информация по прибывшим животным из других регионов</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report9')">Информация по снятым животным </b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report10')">Отчет по ветеринарно-профилактическим мероприятиям</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report11')">Отчет по болезням с/х животных</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report12')">Отчет по исследованиям с/х животных</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report13')">Отчет по замененным ИНЖ</b-dropdown-item>-->
-          <!--<b-dropdown-item v-on:click="reportId('report14')">Информация по зарегистрированным/выбывшим животным одного владельца (Учет откорма животных)</b-dropdown-item>-->
-
-        </b-dropdown>
+     </b-dropdown>
       </div>
 
 
@@ -1134,57 +1124,6 @@
   import cTable from './base/Table.vue'
   import jsPDF from 'jspdf'
 
-  const someData = () => shuffleArray([
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-    {id: '12345678', vac1: '2012/01/01', vac2: '2012/01/01', vac3: '2012/01/01', vac4: '2012/01/01', vac5: '2012/01/01', vac6: '2012/01/01', vac7: '2012/01/01', vac8: '2012/01/01', vac9: '2012/01/01',},
-
-  ])
-
-  function generate() {
-
-      var doc = new jsPDF('p', 'pt');
-
-      var res = doc.autoTableHtmlToJson(document.getElementById("basic-table"));
-      doc.autoTable(res.columns, res.data, {margin: {top: 80}});
-
-      var header = function(data) {
-          doc.setFontSize(18);
-          doc.setTextColor(40);
-          doc.setFontStyle('normal');
-          //doc.addImage(headerImgData, 'JPEG', data.settings.margin.left, 20, 50, 50);
-          doc.text("Testing Report", data.settings.margin.left, 50);
-      };
-
-      var options = {
-          beforePageContent: header,
-          margin: {
-              top: 80
-          },
-          startY: doc.autoTableEndPosY() + 20
-      };
-
-      doc.autoTable(res.columns, res.data, options);
-
-      doc.save("table.pdf");
-  }
 
   export default {
     name: 'c-table',
@@ -1306,90 +1245,6 @@
               FullName: "report4"
             }
             ],
-          items: someData,
-          itemsArray: someData(),
-          fields: [
-            {key: 'id', label: 'User', sortable: true},
-            {key: 'vac1'},
-            {key: 'vac2'},
-            {key: 'vac3'},
-            {key: 'vac4'},
-            {key: 'vac5'},
-            {key: 'vac6'},
-            {key: 'vac7'},
-            {key: 'vac8'},
-            {key: 'vac9'},
-
-          ],
-          json_fields: {
-            'Номер вакцинации': 'vaccinationid',
-            'Вакцинатор': 'vaccinator',
-            'Номер скота': 'livestockid',
-            'Тест крови': 'bloodtest',
-            'Дата': 'date',
-          },
-          json_data: [
-            {
-              'vaccinationid': "123",
-              'vaccinator': "3454",
-              'livestockid': "КРС",
-              'bloodtest': "363",
-              'date': "2018-12-09",
-
-            },
-              {
-                  'vaccinationid': "43",
-                  'vaccinator': "3454",
-                  'livestockid': "МРС",
-                  'bloodtest': "5663",
-                  'date': "2018-12-09",
-
-              },
-              {
-                  'vaccinationid': "24",
-                  'vaccinator': "3454",
-                  'livestockid': "КРС",
-                  'bloodtest': "36",
-                  'date': "2018-12-09",
-
-              },
-              {
-                  'vaccinationid': "22",
-                  'vaccinator': "3454",
-                  'livestockid': "МРС",
-                  'bloodtest': "87",
-                  'date': "2018-12-09",
-
-              },
-              {
-                  'vaccinationid': "546",
-                  'vaccinator': "3454",
-                  'livestockid': "КРС",
-                  'bloodtest': "3632",
-                  'date': "2018-12-09",
-
-              },
-
-          //   {
-          //     'oblast': 'Алматинская Область',
-          //     'raion': 'Аксуский',
-          //     'seok': 'Жансугуров',
-          //     'owner': 'Имя Фамилия',
-          //     'vidimm': 'Вид иммунизации',
-          //     'sick': 'Болезнь',
-          //     'numoflivestock': '456',
-          //     'itogo': '123456',
-          //
-          //   }
-          ],
-          json_meta: [
-            [
-              {
-                'key': 'charset',
-                'value': 'utf-8'
-              }
-            ]
-          ],
         }
       },
 
@@ -1404,26 +1259,6 @@
                   const token = sessionStorage.getItem('token');
                   axios.defaults.headers.common['Authorization'] = "Token " + token
                   console.log(axios.defaults.headers, 'headers in get');
-
-
-
-
-                  //get Department
-                  // axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+'&id='+'&start_date='+'12.02.2019'+'&end_date='+'18.02.2019' , method: 'GET' })
-                  //
-                  //     .then(resp => {
-                  //         // console.log('getFarmer',resp.data)
-                  //         this.getFarmer = resp.data.results
-                  //         this.linkPrev = resp.data.links.previous
-                  //         this.linkNext = resp.data.links.next
-                  //         this.getFarmerLength = resp.data.count % 100
-                  //         // console.log('LENGTHHHHH', resp.data.count)
-                  //         resolve(resp)
-                  //
-                  //
-                  //     })
-                  //     .catch(err => {console.log(err)
-                  //     })
 
 
               })
