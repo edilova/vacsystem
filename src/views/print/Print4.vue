@@ -37,8 +37,13 @@
         </div>
 
         <!--ds{{getFiltered2}}-->
-        <div  v-show="dataPage == 'data2'">
+        <div  v-show="dataPage2 == 'data2'">
             <b-card>
+                <h5 class="text-center mb-3">Отчет сбора крови</h5>
+                <div>
+                    дата: {{startdate}} -{{enddate}}<br>
+                    ИИН владелеца: {{filtername2}}<br><br><br><br><br>
+                </div>
                 <div style="overflow: scroll">
                     <table id="basic-table" class="table">
                         <thead>
@@ -241,8 +246,8 @@
                 })
             },
             repostRequest2($FullName){
-                this.dataPage = $FullName
-                this.dataPage1 = $FullName
+                this.dataPage2 = $FullName
+                this.dataPage2 = $FullName
                 return new Promise((resolve, reject) => {
                     // commit('auth_request')
                     console.log('promise example ');

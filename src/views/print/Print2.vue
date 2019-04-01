@@ -37,8 +37,16 @@
         </div>
 
         <!--ds{{getFiltered2}}-->
-        <div  v-show="dataPage == 'data2'">
+        <div  v-show="dataPage2 == 'data2'">
             <b-card>
+
+                <h5 class="text-center mb-3">Информация о провакцинированных животных</h5>
+                <div>
+                    дата: {{startdate}} -{{enddate}}<br>
+                    ИИН владелеца: {{filtername2}}<br><br><br><br><br>
+                </div>
+                <!--<div v-for="fer in getFiltered2">{{fer.id}}</div>-->
+
                 <div style="overflow: scroll">
                     <table id="basic-table" class="table">
                         <thead>
@@ -48,27 +56,28 @@
                         <th scope="col">Возраст</th>
                         <th scope="col">Масть</th>
                         </thead>
-                        <tbody>
-                        <tr v-for="fer in getFiltered2">
+                        <tbody v-for="fer in getFiltered2">
+
+                        <tr v-for="lv1 in fer.livestocks">
                             <td scope="col">{{fer.name}} </td>
-                            <td scope="col" v-for="lv1 in fer.livestocks">{{lv1.id}} </td>
-                            <td scope="col" v-for="lv2 in fer.livestocks">{{lv2.sex.name}} </td>
-                            <td scope="col" v-for="lv3 in fer.livestocks">{{lv3.age}} </td>
-                            <td scope="col" v-for="lv4 in fer.livestocks">{{lv4.typeoflivestock.name}} </td>
+                            <td scope="col">{{lv1.id}} </td>
+                            <td scope="col">{{lv1.sex.name}} </td>
+                            <td scope="col">{{lv1.age}} </td>
+                            <td scope="col">{{lv1.typeoflivestock.name}} </td>
                             <!--<td scope="col">{{fer.livestocks.age}} </td>-->
                             <!--<td scope="col">{{fer.livestocks.typeoflivestock.name}} </td>-->
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="pagination d-flex flex-row justify-content-between w-100">
-                    <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
-                        <b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>
-                    </b-col>
-                    <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
-                        <b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>
-                    </b-col>
-                </div>
+                <!--<div class="pagination d-flex flex-row justify-content-between w-100">-->
+                    <!--<b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">-->
+                        <!--<b-button block variant="primary" class="mb-2" @click="pagebtnPrevious">Пред</b-button>-->
+                    <!--</b-col>-->
+                    <!--<b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">-->
+                        <!--<b-button block variant="primary" class="mb-2" @click="pagebtnNext">След</b-button>-->
+                    <!--</b-col>-->
+                <!--</div>-->
             </b-card>
         </div>
     </div>
@@ -211,8 +220,8 @@
             },
 
             repostRequest2($FullName){
-                this.dataPage = $FullName
-                this.dataPage1 = $FullName
+                this.dataPage2 = $FullName
+                this.dataPage2 = $FullName
                 return new Promise((resolve, reject) => {
                     // commit('auth_request')
                     console.log('promise example ');

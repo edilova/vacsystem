@@ -326,7 +326,7 @@
                     const token = sessionStorage.getItem('token');
                     axios.defaults.headers.common['Authorization'] = "Token " + token
 
-                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+report, method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
 
                         .then(resp => {
                             console.log('getFiltered',resp.data)

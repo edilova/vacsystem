@@ -69,7 +69,7 @@
         </table>
 
         <b-dropdown  id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
-          <!--<b-dropdown-item v-on:click="reportId('report')">Общий отчет</b-dropdown-item>-->
+          <b-dropdown-item v-on:click="repostRequest('report')">Общий отчет</b-dropdown-item>
           <!--<b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>-->
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
           <b-dropdown-item v-on:click="repostRequest2('report1')">Отчет вакцинированных животных</b-dropdown-item>
