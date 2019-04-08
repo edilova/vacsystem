@@ -414,12 +414,24 @@
                     axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
 
                         .then(resp => {
-                            console.log('getFiltered',resp.data)
-                            this.getFiltered = resp.data.results
-                            this.linkPrev = resp.data.links.previous
-                            this.linkNext = resp.data.links.next
-                            console.log("ceeewf", this.getFiltered.results.livestocks)
-                            resolve(resp)
+
+                            if(isNaN(this.filtername)){
+
+                                alert("Введите ИИН владельца");
+                                this.$router.push('/reports')
+
+                                // document.write(this.filtername + " is not a number <br/>");
+                            }else{
+                                console.log('getFiltered',resp.data)
+                                this.getFiltered = resp.data.results
+                                this.linkPrev = resp.data.links.previous
+                                this.linkNext = resp.data.links.next
+                                console.log("ceeewf", this.getFiltered.results.livestocks)
+                                resolve(resp)
+                                // alert("I am an alert box!");
+                                // document.write(this.filtername + " is a number <br/>");
+                            }
+
 
 
                         })
