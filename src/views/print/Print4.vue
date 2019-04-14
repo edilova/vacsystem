@@ -55,8 +55,10 @@
                         <tbody>
                         <tr v-for="fer in getFiltered2">
                             <td scope="col">{{fer.livestock.id}} </td>
-                            <td scope="col">{{fer.id}} </td>
+                            <td scope="col">{{fer.livestock.typeoflivestock.suit.name}} </td>
                             <td scope="col">{{fer.livestock.typeoflivestock.name}} </td>
+                            <td scope="col">{{fer.id}} </td>
+
                             <!--<td scope="col" v-for="lv1 in fer.livestocks">{{lv1.id}} </td>-->
                             <!--<td scope="col" v-for="lv2 in fer.livestocks">{{lv2.sex.name}} </td>-->
                             <!--<td scope="col" v-for="lv3 in fer.livestocks">{{lv3.age}} </td>-->
