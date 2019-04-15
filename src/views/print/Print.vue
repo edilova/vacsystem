@@ -49,7 +49,7 @@
                         <td v-model="livestock">{{far.phone}}</td>
                         <td v-model="medicine">{{far.email}}</td>
                         <td v-model="bloodtest">{{far.address}}</td>
-                        <td v-model="date">{{far.village}}</td>
+                        <td v-model="date">{{far.village.name}}</td>
                         <td v-model="date">{{far.livestocks.length}}</td>
                     </tr>
                     <!--<p class="mt-5" style="font-size: 1.5rem;"> Данные о животных владельца {{far.name}}</p>-->
@@ -78,10 +78,10 @@
                     <tbody v-for="cv in getFiltered">
                     <tr v-for="fil in cv.livestocks">
                         <td v-model="id">{{fil.id}}</td>
-                        <td v-model="employee">{{fil.age}}</td>
-                        <td v-model="livestock">{{fil.placeofbirth}}</td>
-                        <td v-model="medicine">{{fil.typeoflivestock}}</td>
-                        <td v-model="bloodtest">{{fil.sex}}</td>
+                        <td v-model="employee">{{fil.age}} месяцев</td>
+                        <td v-model="livestock">{{fil.placeofbirth.name}}</td>
+                        <td v-model="medicine">{{fil.typeoflivestock.name}}</td>
+                        <td v-model="bloodtest">{{fil.sex.name}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -411,7 +411,7 @@
                     //get Department
                     console.log(this.filtername)
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/farmer/TableFarmer/?id='+this.filtername, method: 'GET' })
 
                         .then(resp => {
 
