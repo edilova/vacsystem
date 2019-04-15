@@ -50,20 +50,23 @@
                 <div style="overflow: scroll">
                     <table id="basic-table" class="table">
                         <thead>
-                        <th scope="col">Владелец</th>
+                        <!--<th scope="col">Владелец</th>-->
                         <th scope="col">Животное</th>
                         <th scope="col">Пол</th>
                         <th scope="col">Возраст</th>
                         <th scope="col">Масть</th>
                         </thead>
-                        <tbody v-for="fer in getFiltered2">
-
-                        <tr v-for="lv1 in fer.livestocks">
-                            <td scope="col">{{fer.name}} </td>
-                            <td scope="col">{{lv1.id}} </td>
-                            <td scope="col">{{lv1.sex.name}} </td>
-                            <td scope="col">{{lv1.age}} </td>
-                            <td scope="col">{{lv1.typeoflivestock.name}} </td>
+                        <tbody >
+                        <!--<tr v-for="lv1 in fer.livestocks">-->
+                        <tr v-for="fer in getFiltered2">
+                            <td scope="col">{{fer.livestock.id}} </td>
+                            <td scope="col">{{fer.livestock.sex.name}} </td>
+                            <td scope="col">{{fer.livestock.age}} месяцев </td>
+                            <td scope="col">{{fer.livestock.typeoflivestock.name}} </td>
+                            <!--<td scope="col">{{lv1.id}} </td>-->
+                            <!--<td scope="col">{{lv1.sex.name}} </td>-->
+                            <!--<td scope="col">{{lv1.age}} </td>-->
+                            <!--<td scope="col">{{lv1.typeoflivestock.name}} </td>-->
                             <!--<td scope="col">{{fer.livestocks.age}} </td>-->
                             <!--<td scope="col">{{fer.livestocks.typeoflivestock.name}} </td>-->
                         </tr>
@@ -232,7 +235,7 @@
                     //get Department
                     console.log("chto otpr",this.filtername2)
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                    axios({url: 'http://185.22.65.39:7000/farmer/TableFarmer/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
+                    axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
                         .then(resp => {
                             console.log('getFiltered2',resp.data)

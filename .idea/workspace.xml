@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bbb54b99-2c62-471a-9408-caab4c43373f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/print/Print4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print4.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/print/Print2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print2.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,7 +78,7 @@
     <session id="-553647054">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
@@ -87,10 +87,11 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -120,17 +121,17 @@
           <entry key="html" value="36" />
           <entry key="js" value="173" />
           <entry key="scss" value="19" />
-          <entry key="txt" value="313" />
-          <entry key="vue" value="1300" />
+          <entry key="txt" value="361" />
+          <entry key="vue" value="1370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="36" />
           <entry key="JavaScript" value="174" />
-          <entry key="PLAIN_TEXT" value="313" />
+          <entry key="PLAIN_TEXT" value="361" />
           <entry key="SCSS" value="19" />
-          <entry key="Vue.js" value="1299" />
+          <entry key="Vue.js" value="1369" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -184,7 +185,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/print/Print.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6180">
+            <state relative-caret-position="578">
               <caret line="416" selection-start-line="416" selection-end-line="416" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -241,8 +242,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/print/Print4.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="59" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
+            <state relative-caret-position="-2713">
+              <caret line="55" column="56" lean-forward="true" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -250,9 +251,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/print/Print2.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1438">
-              <caret line="39" column="44" lean-forward="true" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+            <state relative-caret-position="374">
+              <caret line="64" column="81" selection-start-line="64" selection-start-column="81" selection-end-line="64" selection-end-column="81" />
               <folding>
+                <element signature="n#style#0;n#div#1;n#b-card#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#5602#6543#0" />
                 <element signature="e#6575#7685#0" />
                 <element signature="e#7712#8822#0" />
@@ -264,8 +266,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/print/Print3.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2534">
-              <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="68" />
+            <state relative-caret-position="438">
+              <caret line="248" column="58" selection-start-line="248" selection-start-column="58" selection-end-line="248" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -354,10 +356,10 @@
         <option value="$PROJECT_DIR$/src/router/index.js" />
         <option value="$PROJECT_DIR$/src/_nav.js" />
         <option value="$PROJECT_DIR$/src/views/Reports.vue" />
-        <option value="$PROJECT_DIR$/src/views/print/Print2.vue" />
         <option value="$PROJECT_DIR$/src/views/print/Print.vue" />
-        <option value="$PROJECT_DIR$/src/views/print/Print4.vue" />
         <option value="$PROJECT_DIR$/src/views/print/Print3.vue" />
+        <option value="$PROJECT_DIR$/src/views/print/Print4.vue" />
+        <option value="$PROJECT_DIR$/src/views/print/Print2.vue" />
       </list>
     </option>
   </component>
@@ -537,7 +539,8 @@
       <workItem from="1554879597516" duration="322000" />
       <workItem from="1554906796262" duration="1427000" />
       <workItem from="1554971947450" duration="182000" />
-      <workItem from="1555084857051" duration="871000" />
+      <workItem from="1555084857051" duration="1403000" />
+      <workItem from="1555302314537" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="first commit&#10;tut back nachat v main i workers">
       <created>1544627499794</created>
@@ -665,14 +668,22 @@
       <option name="project" value="LOCAL" />
       <updated>1554748332630</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="отчет крови (масть, вид животного)">
+      <created>1555254280725</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1555254280725</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161699000" />
+    <option name="totallyTimeSpent" value="162962000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -720,7 +731,8 @@
     <MESSAGE value="рефактор в Reports" />
     <MESSAGE value="изменила вид отчетов" />
     <MESSAGE value="алерт для отчета" />
-    <option name="LAST_COMMIT_MESSAGE" value="алерт для отчета" />
+    <MESSAGE value="отчет крови (масть, вид животного)" />
+    <option name="LAST_COMMIT_MESSAGE" value="отчет крови (масть, вид животного)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -747,7 +759,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/print/Print2.vue</url>
-          <line>91</line>
+          <line>94</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -1009,16 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/print/Print.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6180">
-          <caret line="416" selection-start-line="416" selection-end-line="416" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
@@ -1056,25 +1058,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/print/Print.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="416" selection-start-line="416" selection-end-line="416" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/print/Print4.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="59" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
+        <state relative-caret-position="-2713">
+          <caret line="55" column="56" lean-forward="true" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/print/Print3.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2534">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="68" />
+        <state relative-caret-position="438">
+          <caret line="248" column="58" selection-start-line="248" selection-start-column="58" selection-end-line="248" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/print/Print2.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1438">
-          <caret line="39" column="44" lean-forward="true" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+        <state relative-caret-position="374">
+          <caret line="64" column="81" selection-start-line="64" selection-start-column="81" selection-end-line="64" selection-end-column="81" />
           <folding>
+            <element signature="n#style#0;n#div#1;n#b-card#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#5602#6543#0" />
             <element signature="e#6575#7685#0" />
             <element signature="e#7712#8822#0" />
