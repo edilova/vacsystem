@@ -39,6 +39,7 @@
         <!--ds{{getFiltered2}}-->
         <div  v-show="dataPage2 == 'data2'">
             <b-card>
+                {{getFiltered2}}
 
                 <h5 class="text-center mb-3">Информация о провакцинированных животных</h5>
                 <div>

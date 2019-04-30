@@ -73,7 +73,7 @@
           <!--<b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>-->
           <!--<b-dropdown-item v-on:click="reportId('report0')">Отчет по датам</b-dropdown-item>-->
           <b-dropdown-item v-on:click="repostRequest2('report1')">Отчет вакцинированных животных</b-dropdown-item>
-          <b-dropdown-item v-on:click="repostRequest3('report2')">Отчет по датам</b-dropdown-item>
+          <!--<b-dropdown-item v-on:click="repostRequest3('report2')">Отчет по датам</b-dropdown-item>-->
           <b-dropdown-item v-on:click="repostRequest4('report4')">Отчет крови</b-dropdown-item>
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->

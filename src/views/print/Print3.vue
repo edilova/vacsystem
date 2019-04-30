@@ -46,7 +46,7 @@
                     <table id="basic-table" class="table">
                         <thead>
                         <th scope="col">Животное</th>
-                        <th scope="col" v-for="ferr in getFiltered2">{{ferr.medicine.name}}</th>
+                        <th scope="col" v-for="ferr in DiseaseList">{{ferr.name}}</th>
                         </thead>
                         <tbody>
                         <tr v-for="fer in getFiltered2">
@@ -101,6 +101,7 @@
                 linkNext:"",
                 startdate:"",
                 enddate:"",
+                DiseaseList: "",
 
             }
         },
@@ -245,6 +246,24 @@
 
                     //get Department
                     console.log("chto otpr",this.filtername2)
+
+
+                    // For Disease List
+
+                    axios({url: 'http://185.22.65.39:7000/vaccination/Disease/', method: 'GET' })
+
+                        .then(resp => {
+                            console.log('Disease List',resp.data)
+                            this.DiseaseList = resp.data.results
+                            resolve(resp)
+
+
+                        })
+                        .catch(err => {console.log(err)
+                        })
+
+
+
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
                     axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
@@ -261,6 +280,15 @@
                         .catch(err => {console.log(err)
                         })
 
+
+                    // var str1 = ""
+                    // for (var var1 in this.DiseaseList){
+                    //
+                    //     str1 += this.DiseaseList[var1];
+                    //     console.log("ALOO",str1)
+                    //
+                    //
+                    // }
                 })
             },
             createReport(){
