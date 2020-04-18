@@ -1,7 +1,11 @@
 <template>
     <div>
+        <div class="background-block"></div>
+        <div class="main-input-top w-100 d-flex justify-content-between">
+            <h3 class="mb-3">Отчет сбора крови</h3>
+        </div>
         <div  v-show="dataPage2 == 'notdata2'">
-            <b-card>
+            <b-card class="main-content mx-5">
                 <h5 class="text-center mb-3">Отчет сбора крови</h5>
 
                 <b-form>
@@ -38,8 +42,7 @@
 
         <!--ds{{getFiltered2}}-->
         <div  v-show="dataPage2 == 'data2'">
-            <b-card>
-                <h5 class="text-center mb-3">Отчет сбора крови</h5>
+            <b-card class="main-content mx-5">
                 <div>
                     дата: {{startdate}} -{{enddate}}<br>
                     ИИН владелеца: {{filtername2}}<br><br><br><br><br>
@@ -300,6 +303,24 @@
 
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    .background-block {
+        width: 100vw;
+        height: 30rem;
+        background-color: #1982C4;
+        position: absolute;
+        z-index: -10;
+    }
+    .main-content {
+        top: 3rem;
+        height: 35rem;
+    }
+    .main-input-top {
+        padding-top: 3rem;
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        h3 {
+            color: #ffffff;
+        }
+    }
 </style>

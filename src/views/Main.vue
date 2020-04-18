@@ -1,6 +1,7 @@
 <template>
     <div>
-      <b-card>
+      <div class="background-block"></div>
+      <b-card class="main-content mx-5">
         <div class="back-color">
           <h5 class=" w-75 font-italic mx-auto mb-3">Система вакцинации - программный продукт разработки, позволяющий пользователю системы с
             помощью панели веб-приложения осуществлять контроль вакцинации животных, вести их учёт и
@@ -197,6 +198,16 @@
 </script>
 
 <style scoped>
+  .background-block {
+    width: 100vw;
+    height: 30rem;
+    background-color: #1982C4;
+    position: absolute;
+    z-index: -10;
+  }
+  .main-content {
+    top: 5rem;
+  }
   .back-color{
     color: #17799c;
   }

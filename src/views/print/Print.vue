@@ -1,11 +1,11 @@
 <template>
-
-
     <div class="">
-        <div  v-show="dataPage == 'notdata'">
-            <b-card>
-                <h5 class="text-center mb-3">Информация о владельце по ИИН или имени</h5>
-
+        <div class="background-block"></div>
+        <div class="main-input-top w-100 d-flex justify-content-between">
+            <h3 class="mb-3">Информация о владельце по ИИН или имени</h3>
+        </div>
+        <div v-show="dataPage == 'notdata'">
+            <b-card class="main-content mx-5">
                 <b-form>
                     <b-form-group
                             label="ИИН или имя владельца:"
@@ -21,71 +21,73 @@
                 </div>
             </b-card>
         </div>
-        <div  v-show="dataPage == 'data'">
-            <div>
-                <!--<button @click="print()">-->
-                <!--Печать-->
-                <!--</button>-->
-                <div v-for="nam in getFiltered">
-                    <p class="mt-1" style="font-size: 1.5rem;">Данные о владельце {{nam.name}}</p>
+        <div  class="main-content" v-show="dataPage == 'data'">
+            <b-card class="main-content mx-5">
+                <div>
+                    <!--<button @click="print()">-->
+                    <!--Печать-->
+                    <!--</button>-->
+                    <div v-for="nam in getFiltered">
+                        <p class="mt-1" style="font-size: 1.5rem;">Данные о владельце {{nam.name}}</p>
+                    </div>
+
+                    <table id="basic-table" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">ИИН владельца</th>
+                            <th scope="col">Имя владельца</th>
+                            <th scope="col">Номер телефона</th>
+                            <th scope="col">Почта</th>
+                            <th scope="col">Адресс</th>
+                            <th scope="col">Поселок</th>
+                            <th scope="col">Кол-во скота</th>
+                        </tr>
+                        </thead>
+                        <tbody v-for="far in getFiltered">
+                        <tr>
+                            <td v-model="id">{{far.id}}</td>
+                            <td v-model="employee">{{far.name}}</td>
+                            <td v-model="livestock">{{far.phone}}</td>
+                            <td v-model="medicine">{{far.email}}</td>
+                            <td v-model="bloodtest">{{far.address}}</td>
+                            <td v-model="date">{{far.village.name}}</td>
+                            <td v-model="date">{{far.livestocks.length}}</td>
+                        </tr>
+                        <!--<p class="mt-5" style="font-size: 1.5rem;"> Данные о животных владельца {{far.name}}</p>-->
+                        </tbody>
+                    </table>
+
+
+
+                    <div v-for="nam in getFiltered">
+                        <p class="mt-5" style="font-size: 1.5rem;">Данные о животных владельца {{nam.name}}</p>
+                    </div>
+
+
+
+                    <table id="basic-table" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Номер животного</th>
+                            <th scope="col">Возраст</th>
+                            <th scope="col">Место рождения</th>
+                            <th scope="col">Тип животного</th>
+                            <th scope="col">Пол животного</th>
+                        </tr>
+                        </thead>
+
+                        <tbody v-for="cv in getFiltered">
+                        <tr v-for="fil in cv.livestocks">
+                            <td v-model="id">{{fil.id}}</td>
+                            <td v-model="employee">{{fil.age}} месяцев</td>
+                            <td v-model="livestock">{{fil.placeofbirth.name}}</td>
+                            <td v-model="medicine">{{fil.typeoflivestock.name}}</td>
+                            <td v-model="bloodtest">{{fil.sex.name}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <table id="basic-table" class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">ИИН владельца</th>
-                        <th scope="col">Имя владельца</th>
-                        <th scope="col">Номер телефона</th>
-                        <th scope="col">Почта</th>
-                        <th scope="col">Адресс</th>
-                        <th scope="col">Поселок</th>
-                        <th scope="col">Кол-во скота</th>
-                    </tr>
-                    </thead>
-                    <tbody v-for="far in getFiltered">
-                    <tr>
-                        <td v-model="id">{{far.id}}</td>
-                        <td v-model="employee">{{far.name}}</td>
-                        <td v-model="livestock">{{far.phone}}</td>
-                        <td v-model="medicine">{{far.email}}</td>
-                        <td v-model="bloodtest">{{far.address}}</td>
-                        <td v-model="date">{{far.village.name}}</td>
-                        <td v-model="date">{{far.livestocks.length}}</td>
-                    </tr>
-                    <!--<p class="mt-5" style="font-size: 1.5rem;"> Данные о животных владельца {{far.name}}</p>-->
-                    </tbody>
-                </table>
-
-
-
-                <div v-for="nam in getFiltered">
-                    <p class="mt-5" style="font-size: 1.5rem;">Данные о животных владельца {{nam.name}}</p>
-                </div>
-
-
-
-                <table id="basic-table" class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Номер животного</th>
-                        <th scope="col">Возраст</th>
-                        <th scope="col">Место рождения</th>
-                        <th scope="col">Тип животного</th>
-                        <th scope="col">Пол животного</th>
-                    </tr>
-                    </thead>
-
-                    <tbody v-for="cv in getFiltered">
-                    <tr v-for="fil in cv.livestocks">
-                        <td v-model="id">{{fil.id}}</td>
-                        <td v-model="employee">{{fil.age}} месяцев</td>
-                        <td v-model="livestock">{{fil.placeofbirth.name}}</td>
-                        <td v-model="medicine">{{fil.typeoflivestock.name}}</td>
-                        <td v-model="bloodtest">{{fil.sex.name}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+            </b-card>
         </div>
     </div>
 
@@ -565,6 +567,24 @@
 
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    .background-block {
+        width: 100vw;
+        height: 30rem;
+        background-color: #1982C4;
+        position: absolute;
+        z-index: -10;
+    }
+    .main-content {
+        top: 3rem;
+        height: 35rem;
+    }
+    .main-input-top {
+        padding-top: 3rem;
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        h3 {
+            color: #ffffff;
+        }
+    }
 </style>

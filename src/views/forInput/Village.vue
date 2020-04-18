@@ -1,10 +1,10 @@
 <template>
     <div>
-      <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
-        <b-button block variant="primary" class="mb-2" to="/addvillage">Добавить поселок</b-button>
+      <b-col cols="3" sm="4" md="3" class="mb-3 mb-xl-0 ">
+        <b-button block variant="primary" class="mb-2" to="/mainInput/addvillage">Добавить поселок</b-button>
       </b-col>
-      <b-col lg="12">
-          <div>
+<!--      <b-col lg="12">-->
+<!--          <div>-->
               <b-card>
                   <!--{{getWorkers}}-->
                   <table class="table">
@@ -31,8 +31,8 @@
                       </b-col>
                   </div>
               </b-card>
-          </div>
-      </b-col>
+<!--          </div>-->
+<!--      </b-col>-->
     </div>
 </template>
 
@@ -354,5 +354,13 @@
 
 
 <style scoped>
-
+    .card {
+        border: none;
+    }
+    .card-body {
+        padding-top: 0;
+    }
+    .table thead th, tbody td {
+        border-bottom: none;
+    }
 </style>

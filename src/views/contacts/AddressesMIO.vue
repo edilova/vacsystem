@@ -1,6 +1,10 @@
 <template>
   <div  class="animated fadeIn">
-    <b-card>
+    <div class="background-block"></div>
+    <div class="main-input-top w-100 d-flex justify-content-between">
+      <h3 class="mb-3">Контакты</h3>
+    </div>
+    <b-card class="main-content mx-5">
       <b-table  hover :items="items"></b-table>
     </b-card>
   </div>
@@ -28,6 +32,24 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .background-block {
+    width: 100vw;
+    height: 30rem;
+    background-color: #1982C4;
+    position: absolute;
+    z-index: -10;
+  }
+  .main-content {
+    top: 3rem;
+    height: 35rem;
+  }
+  .main-input-top {
+    padding-top: 3rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    h3 {
+      color: #ffffff;
+    }
+  }
 </style>

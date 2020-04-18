@@ -190,5 +190,7 @@
 </script>
 
 <style scoped>
-
+    .card {
+        border: none;
+    }
 </style>

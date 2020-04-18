@@ -84,7 +84,7 @@
                 console.log(ruraldistrict)
                 this.$store.dispatch('createVillage', { name, ruraldistrict})
                     .then(() => {
-                        this.$router.push('/village')
+                        this.$router.push('/mainInput/village')
                     })
                     .catch(err => console.log(err))
 
@@ -96,5 +96,7 @@
 </script>
 
 <style scoped>
-
+  .card {
+    border: none;
+  }
 </style>

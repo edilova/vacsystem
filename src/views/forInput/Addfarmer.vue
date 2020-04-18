@@ -124,14 +124,14 @@
                 // let password = this.password
                 this.$store.dispatch('createFarmer', { id, name, phone, email, address, village})
                     .then(() => {
-                        this.$router.push('/farmer')
+                        this.$router.push('/mainInput/farmer')
 
                         // this.$router.push('/village')
                     })
                     .catch(err => console.log(err))
 
 
-                this.$router.push('/farmer')
+                this.$router.push('/mainInput/farmer')
                 console.log("ARUUU",village)
             }
         }
@@ -139,5 +139,7 @@
 </script>
 
 <style scoped>
-
+  .card {
+    border: none;
+  }
 </style>

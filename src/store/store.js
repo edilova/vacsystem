@@ -184,6 +184,7 @@ export default new Vuex.Store({
 
                     .then(resp => {
                         console.log('IN CREATE WORKER',resp)
+                        this.$router.push('/mainInput/workers')
 
 
                     })

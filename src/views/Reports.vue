@@ -1,73 +1,7 @@
 <template>
-
-
   <div class="wrapper">
     <div class="animated fadeIn">
       <div>
-
-        <table id="basic-table2" style="display: none;">
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Email</th>
-            <th>Country</th>
-            <th>IP-address</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td align="right">1</td>
-            <td>Donna</td>
-            <td>Moore</td>
-            <td>dmoore0@furl.net</td>
-            <td>China</td>
-            <td>211.56.242.221</td>
-          </tr>
-          <tr>
-            <td align="right">2</td>
-            <td>Janice</td>
-            <td>Henry</td>
-            <td>jhenry1@theatlantic.com</td>
-            <td>Ukraine</td>
-            <td>38.36.7.199</td>
-          </tr>
-          <tr>
-            <td align="right">3</td>
-            <td>Ruth</td>
-            <td>Wells</td>
-            <td>rwells2@constantcontact.com</td>
-            <td>Trinidad and Tobago</td>
-            <td>19.162.133.184</td>
-          </tr>
-          <tr>
-            <td align="right">4</td>
-            <td>Jason</td>
-            <td>Ray</td>
-            <td>jray3@psu.edu</td>
-            <td>Brazil</td>
-            <td>10.68.11.42</td>
-          </tr>
-          <tr>
-            <td align="right">5</td>
-            <td>Jane</td>
-            <td>Stephens</td>
-            <td>jstephens4@go.com</td>
-            <td>United States</td>
-            <td>47.32.129.71</td>
-          </tr>
-          <tr>
-            <td align="right">6</td>
-            <td>Adam</td>
-            <td>Nichols</td>
-            <td>anichols5@com.com</td>
-            <td>Canada</td>
-            <td>18.186.38.37</td>
-          </tr>
-          </tbody>
-        </table>
-
         <b-dropdown  id="ddown1" text="Выбрать отчет" class="m-2" v-show="isReport =='reportt'" >
           <b-dropdown-item v-on:click="repostRequest('report')">Общий отчет</b-dropdown-item>
           <!--<b-dropdown-item @click="repostRequest('data')">Общий отчет</b-dropdown-item>-->
@@ -77,10 +11,8 @@
           <b-dropdown-item v-on:click="repostRequest4('report4')">Отчет крови</b-dropdown-item>
           <!--&lt;!&ndash;<b-dropdown-item v-on:click="reportId('report4')">Информация по количеству животных у владельцев</b-dropdown-item>&ndash;&gt;-->
           <!--<b-dropdown-item v-on:click="reportId('report5')">Информация по породам (масти) животных</b-dropdown-item>-->
-     </b-dropdown>
+        </b-dropdown>
       </div>
-
-
       <div id="wrapper">
         <div v-show="isReport =='report'">
 

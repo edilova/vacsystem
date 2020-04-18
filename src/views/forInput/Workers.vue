@@ -1,17 +1,17 @@
 <template>
     <div>
-      <div class="row">
-        <b-col cols="2" sm="4" md="2" class="mb-3 mb-xl-0 ">
-          <b-button v-on:click="pageAddW('add')"  block variant="primary" class="mb-2" >Добавить работника</b-button>
+<!--      <div  v-show="addWorkerPage == 'notadd'">-->
+
+      <div class="row pl-3">
+        <b-col cols="3" sm="4" md="3" class="mb-3 mb-xl-0 ">
+          <b-button v-on:click="pageAddW('addworkers')"  block variant="primary" class="mb-2" >Добавить работника</b-button>
         </b-col>
-        <b-col cols="2" sm="4" md="2" class="ml-1 mb-3 mb-xl-0 ">
-          <b-button v-on:click="listOfWorkers('notadd')"  block variant="primary" class="mb-2" >Список  работников</b-button>
-        </b-col>
+        <!--        <b-col cols="2" sm="4" md="2" class="ml-1 mb-3 mb-xl-0 ">-->
+        <!--          <b-button v-on:click="listOfWorkers('notadd')"  block variant="primary" class="mb-2" >Список  работников</b-button>-->
+        <!--        </b-col>-->
       </div>
-
-
-      <div  v-show="addWorkerPage == 'notadd'">
         <b-card>
+
           <!--{{getWorkers}}-->
           <table class="table">
             <thead>
@@ -46,107 +46,107 @@
             </div>
           </nav>
         </b-card>
-      </div>
+<!--      </div>-->
 
-      <div  v-show="addWorkerPage == 'add'">
-        <b-card>
-          <b-form>
-            <b-form-group
+<!--      <div  v-show="addWorkerPage == 'add'">-->
+<!--        <b-card>-->
+<!--          <b-form>-->
+<!--            <b-form-group-->
 
-              description="ИИН Работника"
-              label="ИИН Работника"
-              label-for="basicName"
-              :label-cols="3"
-              :horizontal="true">
-              <b-form-input v-model="IIN" id="basicName" type="text" autocomplete="name"></b-form-input>
-            </b-form-group>
-
-
-
-            <b-form-group
-              description="пароль"
-              label="Пароль"
-              label-for="basicName"
-              :label-cols="3"
-              :horizontal="true">
-              <b-form-input v-model="passw" id="basicName" type="text" autocomplete="name"></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-              description="Полное имя Работника"
-              label="ФИО"
-              label-for="basicName"
-              :label-cols="3"
-              :horizontal="true">
-              <b-form-input v-model="fio" id="basicName" type="text" autocomplete="name"></b-form-input>
-            </b-form-group>
-
-
-            <div class="row">
-              <div class="col-3">
-                <p>Специальность</p>
-              </div>
-
-              <div class="col-9">
-                <select class="w-100" v-model="selectedSpec" >
-                  <option disabled value="">Выберите специальность</option>
-                  <option v-for="spec in specialities" v-bind:value="spec.id">{{spec.name}}</option>
-                </select>
-              </div>
-
-            </div>
-
-            <div class="row">
-              <div class="col-3">
-                <p>Отдел</p>
-              </div>
-
-              <div class="col-9">
-                <select class="w-100"  v-model="selectedDep">
-                  <option disabled value="">Выберите отдел</option>
-                  <option  v-for="de in departments" v-bind:value="de.id">{{de.name}}
-                  </option>
-
-                </select>
-              </div>
-
-            </div>
-
-            <div class="row">
-              <div class="col-3">
-                <p>Сельский округ</p>
-              </div>
-
-              <div class="col-9">
-                <select class="w-100"  v-model="selectedSO">
-                  <option disabled value="">Выберите сельский округ</option>
-                  <option  v-for="so in okrugs" v-bind:value="so.id">{{so.name}}
-                  </option>
-                </select>
-              </div>
-
-            </div>
+<!--              description="ИИН Работника"-->
+<!--              label="ИИН Работника"-->
+<!--              label-for="basicName"-->
+<!--              :label-cols="3"-->
+<!--              :horizontal="true">-->
+<!--              <b-form-input v-model="IIN" id="basicName" type="text" autocomplete="name"></b-form-input>-->
+<!--            </b-form-group>-->
 
 
 
-            <b-form-group
-              description="Номер телефона Работника"
-              label="Номер телефона"
-              label-for="basicName"
-              :label-cols="3"
-              :horizontal="true">
-              <b-form-input  v-model="phone"  id="basicName" type="text" autocomplete="name"></b-form-input>
-            </b-form-group>
+<!--            <b-form-group-->
+<!--              description="пароль"-->
+<!--              label="Пароль"-->
+<!--              label-for="basicName"-->
+<!--              :label-cols="3"-->
+<!--              :horizontal="true">-->
+<!--              <b-form-input v-model="passw" id="basicName" type="text" autocomplete="name"></b-form-input>-->
+<!--            </b-form-group>-->
+
+<!--            <b-form-group-->
+<!--              description="Полное имя Работника"-->
+<!--              label="ФИО"-->
+<!--              label-for="basicName"-->
+<!--              :label-cols="3"-->
+<!--              :horizontal="true">-->
+<!--              <b-form-input v-model="fio" id="basicName" type="text" autocomplete="name"></b-form-input>-->
+<!--            </b-form-group>-->
 
 
-          </b-form>
-          <div class="form-actions">
-            <b-button v-on:click="createNew()" type="submit" variant="primary">Добавить работника</b-button>
-          </div>
-        </b-card>
+<!--            <div class="row">-->
+<!--              <div class="col-3">-->
+<!--                <p>Специальность</p>-->
+<!--              </div>-->
+
+<!--              <div class="col-9">-->
+<!--                <select class="w-100" v-model="selectedSpec" >-->
+<!--                  <option disabled value="">Выберите специальность</option>-->
+<!--                  <option v-for="spec in specialities" v-bind:value="spec.id">{{spec.name}}</option>-->
+<!--                </select>-->
+<!--              </div>-->
+
+<!--            </div>-->
+
+<!--            <div class="row">-->
+<!--              <div class="col-3">-->
+<!--                <p>Отдел</p>-->
+<!--              </div>-->
+
+<!--              <div class="col-9">-->
+<!--                <select class="w-100"  v-model="selectedDep">-->
+<!--                  <option disabled value="">Выберите отдел</option>-->
+<!--                  <option  v-for="de in departments" v-bind:value="de.id">{{de.name}}-->
+<!--                  </option>-->
+
+<!--                </select>-->
+<!--              </div>-->
+
+<!--            </div>-->
+
+<!--            <div class="row">-->
+<!--              <div class="col-3">-->
+<!--                <p>Сельский округ</p>-->
+<!--              </div>-->
+
+<!--              <div class="col-9">-->
+<!--                <select class="w-100"  v-model="selectedSO">-->
+<!--                  <option disabled value="">Выберите сельский округ</option>-->
+<!--                  <option  v-for="so in okrugs" v-bind:value="so.id">{{so.name}}-->
+<!--                  </option>-->
+<!--                </select>-->
+<!--              </div>-->
+
+<!--            </div>-->
 
 
-      </div>
+
+<!--            <b-form-group-->
+<!--              description="Номер телефона Работника"-->
+<!--              label="Номер телефона"-->
+<!--              label-for="basicName"-->
+<!--              :label-cols="3"-->
+<!--              :horizontal="true">-->
+<!--              <b-form-input  v-model="phone"  id="basicName" type="text" autocomplete="name"></b-form-input>-->
+<!--            </b-form-group>-->
+
+
+<!--          </b-form>-->
+<!--          <div class="form-actions">-->
+<!--            <b-button v-on:click="createNew()" type="submit" variant="primary">Добавить работника</b-button>-->
+<!--          </div>-->
+<!--        </b-card>-->
+
+
+<!--      </div>-->
 
 
 {{selectedDep}}
@@ -325,6 +325,7 @@
               })
           },
           pageAddW($FullName) {
+              this.$router.push('/mainInput/addworkers')
           this.addWorkerPage = $FullName
               return new Promise((resolve, reject) => {
                   // commit('auth_request')
@@ -402,11 +403,21 @@
 </script>
 
 <style scoped>
-input{
-  /*border-color: #e4ecf1;*/
-  /*border-radius: 0.2rem;*/
-  /*border-top-color: #dbe2e7;*/
-  /*border-style: groove;*/
-  /*height: 2.2rem;*/
-}
+  input{
+    /*border-color: #e4ecf1;*/
+    /*border-radius: 0.2rem;*/
+    /*border-top-color: #dbe2e7;*/
+    /*border-style: groove;*/
+    /*height: 2.2rem;*/
+  }
+  .card {
+    border: none;
+  }
+  .card-body {
+    padding-top: 0;
+  }
+  .table thead th, tbody td {
+    border-bottom: none;
+  }
+
 </style>

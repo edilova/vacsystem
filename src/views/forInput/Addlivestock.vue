@@ -201,7 +201,7 @@
                     })
                     .catch(err => console.log(err))
 
-                this.$router.push('/livestock')
+                this.$router.push('/mainInput/livestock')
 
                 axios({url: 'https://vetprof.herokuapp.com/livestock/LiveStock/', method: 'GET' })
 
@@ -221,5 +221,7 @@
 </script>
 
 <style scoped>
-
+    .card {
+        border: none;
+    }
 </style>

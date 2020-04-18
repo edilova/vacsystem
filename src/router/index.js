@@ -105,74 +105,158 @@ let router =  new Router({
         {
           path: 'mainInput',
           name: 'Ввод данных',
+          redirect: '/mainInput/workers',
           component: MainInput,
-            meta: {
-                requiresAuth: true
-            }
-
+          meta: {
+            requiresAuth: true
+          },
+          children: [
+              {
+                path: 'workers',
+                name: 'Работники',
+                component: Workers,
+                meta: {
+                  requiresAuth: true
+                }
+              },
+              {
+                path: 'village',
+                name: 'Поселок',
+                component: Village,
+                meta: {
+                  requiresAuth: true
+                }
+              },
+              {
+                path: 'farmer',
+                name: 'Фермеры',
+                component: Farmer
+              },
+              {
+                path: 'livestock',
+                name: 'Скот',
+                component: Livestock
+              },
+              {
+                path: 'vaccination',
+                name: 'Вакцина',
+                component: Vaccination
+              },
+              {
+                path: 'addworkers',
+                name: 'Добавить Работника',
+                component: Addworkers,
+                meta: {
+                  requiresAuth: true
+                }
+              },
+              {
+                path: 'addvillage',
+                name: 'Добавить поселок',
+                component: Addvillage,
+                meta: {
+                  requiresAuth: true
+                }
+              },
+              {
+                path: 'addfarmer',
+                name: 'Добавить фермера',
+                component: Addfarmer
+              },
+              {
+                path: 'addlivestock',
+                name: 'Скот',
+                component: Addlivestock
+              },
+              {
+                path: 'addvaccination',
+                name: 'Добавить вакцину',
+                component: Addvaccination
+              },
+            ]
         },
         {
-          path: 'workers',
-          name: 'Работники',
-          component: Workers,
-            meta: {
-                requiresAuth: true
-            }
+          path: '/print',
+          name: 'Печать',
+          component: Print,
         },
         {
-          path: 'addworkers',
-          name: 'Добавить Работника',
-          component: Addworkers,
-            meta: {
-                requiresAuth: true
-            }
+          path: '/print2',
+          name: 'Печать',
+          component: Print2,
         },
         {
-          path: 'village',
-          name: 'Поселок',
-          component: Village,
-            meta: {
-                requiresAuth: true
-            }
+          path: '/print3',
+          name: 'Печать',
+          component: Print3,
         },
         {
-          path: 'addvillage',
-          name: 'Добавить поселок',
-          component: Addvillage,
-            meta: {
-                requiresAuth: true
-            }
+          path: '/print4',
+          name: 'Печать',
+          component: Print4,
         },
-        {
-          path: 'farmer',
-          name: 'Фермеры',
-          component: Farmer
-        },
-        {
-          path: 'addfarmer',
-          name: 'Добавить фермера',
-          component: Addfarmer
-        },
-        {
-          path: 'livestock',
-          name: 'Скот',
-          component: Livestock
-        },
-        {
-          path: 'addlivestock',
-          name: 'Скот',
-          component: Addlivestock
-        },
-        {
-          path: 'addvaccination',
-          name: 'Добавить вакцину',
-          component: Addvaccination
-        },
-        {
-          path: 'vaccination',
-          name: 'Вакцина',
-          component: Vaccination
-        },
+        // {
+        //   path: 'workers',
+        //   name: 'Работники',
+        //   component: Workers,
+        //     meta: {
+        //         requiresAuth: true
+        //     }
+        // },
+        // {
+        //   path: 'addworkers',
+        //   name: 'Добавить Работника',
+        //   component: Addworkers,
+        //     meta: {
+        //         requiresAuth: true
+        //     }
+        // },
+        // {
+        //   path: 'village',
+        //   name: 'Поселок',
+        //   component: Village,
+        //     meta: {
+        //         requiresAuth: true
+        //     }
+        // },
+        // {
+        //   path: 'addvillage',
+        //   name: 'Добавить поселок',
+        //   component: Addvillage,
+        //     meta: {
+        //         requiresAuth: true
+        //     }
+        // },
+        // {
+        //   path: 'farmer',
+        //   name: 'Фермеры',
+        //   component: Farmer
+        // },
+        // {
+        //   path: 'addfarmer',
+        //   name: 'Добавить фермера',
+        //   component: Addfarmer
+        // },
+        // {
+        //   path: 'livestock',
+        //   name: 'Скот',
+        //   component: Livestock
+        // },
+        // {
+        //   path: 'addlivestock',
+        //   name: 'Скот',
+        //   component: Addlivestock
+        // },
+        // {
+        //   path: 'addvaccination',
+        //   name: 'Добавить вакцину',
+        //   component: Addvaccination
+        // },
+        // {
+        //   path: 'vaccination',
+        //   name: 'Вакцина',
+        //   component: Vaccination
+        // },
 
         {
           path: 'bloodtest',
@@ -239,28 +323,48 @@ let router =  new Router({
             }
           ]
         },
+        // {
+        //   path: '/print',
+        //   name: 'Печать',
+        //   component: Print,
+        // },
+        // {
+        //   path: '/print2',
+        //   name: 'Печать',
+        //   component: Print2,
+        // },
+        // {
+        //   path: '/print3',
+        //   name: 'Печать',
+        //   component: Print3,
+        // },
+        // {
+        //   path: '/print4',
+        //   name: 'Печать',
+        //   component: Print4,
+        // },
       ]
     },
-      {
-          path: '/print',
-          name: 'Печать',
-          component: Print,
-      },
-      {
-          path: '/print2',
-          name: 'Печать',
-          component: Print2,
-      },
-      {
-          path: '/print3',
-          name: 'Печать',
-          component: Print3,
-      },
-      {
-          path: '/print4',
-          name: 'Печать',
-          component: Print4,
-      },
+      // {
+      //     path: '/print',
+      //     name: 'Печать',
+      //     component: Print,
+      // },
+      // {
+      //     path: '/print2',
+      //     name: 'Печать',
+      //     component: Print2,
+      // },
+      // {
+      //     path: '/print3',
+      //     name: 'Печать',
+      //     component: Print3,
+      // },
+      // {
+      //     path: '/print4',
+      //     name: 'Печать',
+      //     component: Print4,
+      // },
       {
           path: '/login',
           name: 'Login',
