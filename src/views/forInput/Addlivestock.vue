@@ -124,7 +124,7 @@
                     console.log(axios.defaults.headers, 'headers in get');
 
                     //get Suit
-                    axios({url: 'http://185.22.65.39:7000/livestock/Suit/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/livestock/Suit/', method: 'GET' })
 
                         .then(resp => {
                             console.log('GET SUIT',resp.data)
@@ -137,7 +137,7 @@
                         })
 
                     //get Farmer
-                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/farmer/Farmer/', method: 'GET' })
 
                         .then(resp => {
                             console.log('GET FARMER',resp.data)
@@ -152,7 +152,7 @@
 
 
                     //get Place of birth
-                    axios({url: 'http://185.22.65.39:7000/farmer/Village/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/farmer/Village/', method: 'GET' })
 
                         .then(resp => {
                             console.log('GET PLACE',resp.data)
@@ -165,7 +165,7 @@
                         })
 
                     //get Gender
-                    axios({url: 'http://185.22.65.39:7000/livestock/Sex/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/livestock/Sex/', method: 'GET' })
 
                         .then(resp => {
                             console.log('GENDER',resp.data)
@@ -203,7 +203,7 @@
 
                 this.$router.push('/livestock')
 
-                axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', method: 'GET' })
+                axios({url: 'https://vetprof.herokuapp.com/livestock/LiveStock/', method: 'GET' })
 
                     .then(resp => {
                         console.log('getLivestock',resp.data)

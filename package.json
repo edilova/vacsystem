@@ -32,6 +32,7 @@
     "simple-line-icons": "^2.4.1",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.4",
+    "vue-chartjs": "^3.5.0",
     "vue-json-excel": "^0.2.96",
     "vue-lodash": "^2.0.0",
     "vue-perfect-scrollbar": "^0.1.0",

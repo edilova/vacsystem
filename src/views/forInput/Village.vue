@@ -128,7 +128,7 @@
                     console.log(axios.defaults.headers, 'headers in get');
 
                     //get Department
-                    axios({url: 'http://185.22.65.39:7000/farmer/Village/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/farmer/Village/', method: 'GET' })
 
                         .then(resp => {
                             console.log('getVillage',resp.data)
@@ -186,7 +186,7 @@
 
 
                     //get Department
-                    axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/employee/Department/', method: 'GET' })
 
                         .then(resp => {
                             console.log('DEPARTMENT',resp.data)
@@ -200,7 +200,7 @@
 
 
                     //get Speciality
-                    axios({url: 'http://185.22.65.39:7000/employee/EmployeeType/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/employee/EmployeeType/', method: 'GET' })
 
                         .then(resp => {
                             console.log('SPECIALITY',resp.data)
@@ -213,7 +213,7 @@
                         })
 
                     //get Sel'skii okrug
-                    axios({url: 'http://185.22.65.39:7000/employee/EmployeeType/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/employee/EmployeeType/', method: 'GET' })
 
                         .then(resp => {
                             console.log('OKRUG',resp.data)

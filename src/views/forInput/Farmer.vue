@@ -173,7 +173,7 @@
                   console.log(axios.defaults.headers, 'headers in get');
 
                   //get Department
-                  axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?count', method: 'GET' })
+                  axios({url: 'https://vetprof.herokuapp.com/farmer/Farmer/?count', method: 'GET' })
 
                       .then(resp => {
                           console.log('getFarmer',resp.data)

@@ -118,7 +118,7 @@
       methods:{
         created() {
           console.log("CREATED CLICKED")
-          this.$http.get('http://185.22.65.39:7000/employee/Department/').then(function (data) {
+          this.$http.get('https://vetprof.herokuapp.com/employee/Department/').then(function (data) {
             this.todos = data.body
             console.log(data)
           })

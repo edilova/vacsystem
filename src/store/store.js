@@ -33,7 +33,7 @@ export default new Vuex.Store({
                 const token = sessionStorage.getItem('token');
                 axios.defaults.headers.common['Authorization'] = "Token " + token
 
-                axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', data: data, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/livestock/LiveStock/', data: data, method: 'POST' })
                     .then(resp => {
                         console.log('NURZHIK',resp.data)
                         resolve(resp)
@@ -47,7 +47,7 @@ export default new Vuex.Store({
             console.log("innnnn",user)
             return new Promise((resolve, reject) => {
                 commit('auth_request')
-                axios({url: 'http://185.22.65.39:7000/login ', data: user, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/login ', data: user, method: 'POST' })
                     .then(resp => {
                         const token = resp.data.token
                         console.log(resp)
@@ -100,7 +100,7 @@ export default new Vuex.Store({
                 const token = sessionStorage.getItem('token');
                 axios.defaults.headers.common['Authorization'] = "Token " + token
 
-                axios({url: 'http://185.22.65.39:7000/farmer/Village/', data: village, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/farmer/Village/', data: village, method: 'POST' })
                     .then(resp => {
                         console.log('IN MAIN',resp.data)
                         resolve(resp)
@@ -118,7 +118,7 @@ export default new Vuex.Store({
                 const token = sessionStorage.getItem('token');
                 axios.defaults.headers.common['Authorization'] = "Token " + token
 
-                axios({url: 'http://185.22.65.39:7000/livestock/LiveStock/', data: live, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/livestock/LiveStock/', data: live, method: 'POST' })
                     .then(resp => {
                         console.log('LIVESTOOOOOOCK',resp.data)
                         resolve(resp)
@@ -133,7 +133,7 @@ export default new Vuex.Store({
                 const token = sessionStorage.getItem('token');
                 axios.defaults.headers.common['Authorization'] = "Token " + token
 
-                axios({url: 'http://185.22.65.39:7000/vaccination/Medicine/', data: vac, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/vaccination/Medicine/', data: vac, method: 'POST' })
                     .then(resp => {
                         console.log('VACCINATION',resp.data)
                         resolve(resp)
@@ -156,7 +156,7 @@ export default new Vuex.Store({
 
                 console.log(axios.defaults.headers, 'headers in get');
 
-                axios({url: 'http://185.22.65.39:7000/employee/Department/', method: 'GET' })
+                axios({url: 'https://vetprof.herokuapp.com/employee/Department/', method: 'GET' })
 
                     .then(resp => {
                         console.log('IN MAIN',resp.data)
@@ -180,7 +180,7 @@ export default new Vuex.Store({
 
                 console.log(axios.defaults.headers, 'headers in get');
 
-                axios({url: 'http://185.22.65.39:7000/employee/Employee/', data: inf, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/employee/Employee/', data: inf, method: 'POST' })
 
                     .then(resp => {
                         console.log('IN CREATE WORKER',resp)
@@ -200,7 +200,7 @@ export default new Vuex.Store({
                 axios.defaults.headers.common['Authorization'] = "Token " + token
                 console.log(axios.defaults.headers, 'headers in get');
 
-                axios({url: 'http://185.22.65.39:7000/farmer/Farmer/', data: inf, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/farmer/Farmer/', data: inf, method: 'POST' })
 
                     .then(resp => {
                         console.log('IN CREATE FARMER',resp)
@@ -214,7 +214,7 @@ export default new Vuex.Store({
         register({commit}, user){
             return new Promise((resolve, reject) => {
                 commit('auth_request')
-                axios({url: 'http://localhost:8080/register', data: user, method: 'POST' })
+                axios({url: 'https://vetprof.herokuapp.com/register', data: user, method: 'POST' })
                     .then(resp => {
                         const token = resp.data.token
                         const user = resp.data.user

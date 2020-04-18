@@ -133,7 +133,7 @@
                     const token = sessionStorage.getItem('token');
                     axios.defaults.headers.common['Authorization'] = "Token " + token
 
-                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+report, method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/farmer/Farmer/?id='+report, method: 'GET' })
 
                         .then(resp => {
                             console.log('getFiltered',resp.data)
@@ -217,7 +217,7 @@
 
                     //get Department
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                    axios({url: 'http://185.22.65.39:7000/farmer/Farmer/?id='+this.filtername, method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/farmer/Farmer/?id='+this.filtername, method: 'GET' })
 
                         .then(resp => {
                             console.log('getFiltered',resp.data)
@@ -250,7 +250,7 @@
 
                     // For Disease List
 
-                    axios({url: 'http://185.22.65.39:7000/vaccination/Disease/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/vaccination/Disease/', method: 'GET' })
 
                         .then(resp => {
                             console.log('Disease List',resp.data)
@@ -265,7 +265,7 @@
 
 
                     // axios({url: 'http://185.22.65.39:7000/vaccination/Vaccination/', method: 'GET' })
-                    axios({url: 'http://185.22.65.39:7000/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/vaccination/TableVaccination/?name='+this.filtername2+'&id='+this.filtername2+'&start_date='+this.startdate+'&end_date='+this.enddate, method: 'GET' })
 
                         .then(resp => {
                             console.log('getFiltered2',resp.data)

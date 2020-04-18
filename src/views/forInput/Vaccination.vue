@@ -120,7 +120,7 @@
                     axios.defaults.headers.common['Authorization'] = "Token " + token
                     console.log(axios.defaults.headers, 'headers in get');
 
-                    axios({url: 'http://185.22.65.39:7000/vaccination/Medicine/', method: 'GET' })
+                    axios({url: 'https://vetprof.herokuapp.com/vaccination/Medicine/', method: 'GET' })
 
                         .then(resp => {
                             console.log('getMedicine',resp.data)
