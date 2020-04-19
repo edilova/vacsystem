@@ -12,20 +12,20 @@
       <b-card class="main-content mx-5">
         <div class="d-flex">
           <div class="content-left">
-            <div class="left-side-button" size="lg" variant="outline-primary" @click="openList('workers')" to="/workers"   block>
+            <div class="left-side-button" :class="{ active: whichRoute === 'workers' }" size="lg" variant="outline-primary" @click="openList('workers')" to="/workers"   block>
               <h3>Работники</h3>
               <p>Узнать информацию о работниках</p>
             </div>
-            <div class="left-side-button" size="lg" variant="outline-primary" @click="openList('village')" to="/village"  block>
+            <div class="left-side-button" :class="{ active: whichRoute === 'village' }" size="lg" variant="outline-primary" @click="openList('village')" to="/village"  block>
               <h3>Поселок</h3>
               <p>Узнать информацию о поселке</p></div>
-            <div class="left-side-button" size="lg" variant="outline-primary" @click="openList('farmer')" to="/farmer"  block>
+            <div class="left-side-button" :class="{ active: whichRoute === 'farmer' }" size="lg" variant="outline-primary" @click="openList('farmer')" to="/farmer"  block>
               <h3>Фермеры</h3>
               <p>Узнать информацию о фермерах</p></div>
-            <div class="left-side-button" size="lg" variant="outline-primary" @click="openList('livestock')" to="/livestock"  block>
+            <div class="left-side-button" :class="{ active: whichRoute === 'livestock' }" size="lg" variant="outline-primary" @click="openList('livestock')" to="/livestock"  block>
               <h3>Животные</h3>
               <p>Узнать информацию о животных</p></div>
-            <div class="left-side-button" size="lg" variant="outline-primary" @click="openList('vaccination')" to="/vaccination"  block>
+            <div class="left-side-button" :class="{ active: whichRoute === 'vaccination' }" size="lg" variant="outline-primary" @click="openList('vaccination')" to="/vaccination"  block>
               <h3>Вакцинация</h3>
               <p>Узнать информацию о вакцинации</p></div>
           </div>
@@ -145,18 +145,24 @@
     /*border-radius: 0.25rem;*/
   }
   .content-left {
-    width: 20%;
+    width: 30%;
+    padding-right: 2rem;
+    .active {
+      background: #F4F6F9;
+      border-radius: 6.5px;
+    }
   }
   .content-divider {
     border-left: 1px solid rgba(216, 220, 230, 0.42);;
   }
   .content-right {
-    width: 80%;
+    width: 70%;
   }
   .left-side-button {
     border: none;
     color: #959CB6;
     margin-bottom: 1rem;
+    padding: .5rem 1rem .5rem 1rem;
     /*height: 2rem;*/
     h3 {
       color: #50566A;

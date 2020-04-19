@@ -6,15 +6,15 @@
         <div class="d-flex align-items-center">
           <img class="main-logo" src="../assets/LOGO.png" width="40" height="40" alt="CoreUI Logo">
         </div>
-        <div @click="getRoute('main')" class="main-links">Главная</div>
-        <div @click="getRoute('report')" class="main-links">Отчеты</div>
+        <div @click="getRoute('main')" class="main-links" :class="{ active: activeTab === 'main' }">Главная</div>
+        <div @click="getRoute('report')" class="main-links" :class="{ active: activeTab === 'report' }">Отчеты</div>
         <div class="dropdown-for-report" v-if="openReports">
           <div class="dropdown-links" @click="getRoute('print')">Общий отчет</div>
           <div class="dropdown-links" @click="getRoute('print2')">Отчет вакцинированных животных</div>
           <div class="dropdown-links" @click="getRoute('print4')">Отчет крови</div>
         </div>
-        <div @click="getRoute('mainInput')" class="main-links">Данные</div>
-        <div @click="getRoute('contacts')" class="main-links">Контакты</div>
+        <div @click="getRoute('mainInput')" class="main-links" :class="{ active: activeTab === 'mainInput' }">Данные</div>
+        <div @click="getRoute('contacts')" class="main-links" :class="{ active: activeTab === 'contacts' }">Контакты</div>
       </div>
       <div class="main-logout" @click="logout">
         Выйти
@@ -85,7 +85,8 @@ export default {
       token:  sessionStorage.getItem('access_token') ,
       nav: nav.items,
       activeClass: 'active',
-      openReports: false
+      openReports: false,
+      activeTab: 'main'
     }
   },
   computed: {
@@ -116,6 +117,7 @@ export default {
               })
       },
       getRoute(route) {
+          this.activeTab = route
           if (route === 'report') {
               this.openReports = true;
           } else {
@@ -151,8 +153,6 @@ export default {
       color: #fff;
     }
     .active {
-      /*width: 3rem;*/
-      height: 1rem;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
       text-decoration: none;
@@ -171,8 +171,8 @@ export default {
     display: none;
     width: 30rem;
     height: auto;
-    margin-top: 2.8rem;
-    left: 19rem;
+    margin-top: 3rem;
+    left: 17.4rem;
     background-color: #ffffff;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;

@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbb54b99-2c62-471a-9408-caab4c43373f" name="Default Changelist" comment="отчет общий отчет готов">
-      <change afterPath="$PROJECT_DIR$/src/assets/LOGO.png" afterDir="false" />
+    <list default="true" id="bbb54b99-2c62-471a-9408-caab4c43373f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/DefaultContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DefaultContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Main.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Reports.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Reports.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/contacts/AddressesMIO.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/contacts/AddressesMIO.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Addfarmer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Addfarmer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Addlivestock.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Addlivestock.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Addvaccination.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Addvaccination.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Addvillage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Addvillage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Addworkers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Addworkers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Farmer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Farmer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Livestock.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Livestock.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Vaccination.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Vaccination.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Village.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Village.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/forInput/Workers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/forInput/Workers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/print/Print.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/print/Print2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print2.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/print/Print4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print4.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +179,8 @@
       <workItem from="1586625412259" duration="587000" />
       <workItem from="1586964750881" duration="91000" />
       <workItem from="1586964997054" duration="991000" />
-      <workItem from="1587201752093" duration="21855000" />
+      <workItem from="1587201752093" duration="22090000" />
+      <workItem from="1587275069905" duration="1957000" />
     </task>
     <task id="LOCAL-00001" summary="first commit&#10;tut back nachat v main i workers">
       <created>1544627499794</created>
@@ -353,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587202594044</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="done with redesign">
+      <created>1587235516778</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1587235516778</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,29 +372,30 @@
     <MESSAGE value="отчет Информация о провакцинированных животных готов" />
     <MESSAGE value="отчет общий отчет готов" />
     <MESSAGE value="lets start" />
-    <option name="LAST_COMMIT_MESSAGE" value="lets start" />
+    <MESSAGE value="done with redesign" />
+    <option name="LAST_COMMIT_MESSAGE" value="done with redesign" />
   </component>
   <component name="WindowStateProjectService">
     <state x="472" y="313" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587235407817">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="472" y="313" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1587235407817" />
-    <state x="331" y="51" key="CommitChangelistDialog2" timestamp="1587202592966">
+    <state x="331" y="51" key="CommitChangelistDialog2" timestamp="1587235515005">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="331" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1587202592966" />
+    <state x="331" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1587235515005" />
     <state x="144" y="79" key="DiffContextDialog" timestamp="1587202424171">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="144" y="79" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587202424171" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1587202599612">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1587235522386">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1587202599612" />
-    <state x="413" y="280" key="com.intellij.ide.util.TipDialog" timestamp="1586965354545">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1587235522386" />
+    <state x="413" y="279" key="com.intellij.ide.util.TipDialog" timestamp="1587275085786">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="413" y="280" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1586965354545" />
+    <state x="413" y="279" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587275085786" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587202851114">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -446,7 +437,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/containers/DefaultContainer.vue</url>
           <line>185</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
