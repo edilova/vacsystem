@@ -47,6 +47,7 @@ const FindAnimal = () => import('@/views/animalRecords/FindAnimal')
 const Page404 = () => import('@/views/pages/Page404')
 const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
+const Landing = () => import('@/views/landing/Landing')
 const Logon = () => import('@/views/pages/Logon')
 const Register = () => import('@/views/pages/Register')
 const Print = () => import('@/views/print/Print')
@@ -371,6 +372,11 @@ let router =  new Router({
           component: Login
       },
     {
+      path: '/landing',
+      name: 'landing',
+      component: Landing
+    },
+    {
       path: '/pages',
       redirect: '/pages/404',
       name: 'Pages',
@@ -416,7 +422,7 @@ router.beforeEach((to, from, next) => {
             next()
             return
         }
-        next('/login')
+        next('/landing')
     } else {
         next()
     }
