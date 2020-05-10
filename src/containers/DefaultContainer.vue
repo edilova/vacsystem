@@ -4,7 +4,7 @@
       <div class="main-header">
 
         <div class="d-flex align-items-center">
-          <img class="main-logo" src="../assets/LOGO.png" width="40" height="40" alt="CoreUI Logo">
+          <img class="main-logo" src="../assets/landing/logo.png" width="40" height="40" alt="CoreUI Logo" style="border-radius: 4px;">
         </div>
         <div @click="getRoute('main')" class="main-links" :class="{ active: activeTab === 'main' }">Главная</div>
         <div @click="getRoute('report')" class="main-links" :class="{ active: activeTab === 'report' }">Отчеты</div>
@@ -113,7 +113,7 @@ export default {
       logout: function () {
           this.$store.dispatch('logout')
               .then(() => {
-                  this.$router.push('/login')
+                  this.$router.push('/landing')
               })
       },
       getRoute(route) {
@@ -144,7 +144,7 @@ export default {
     /*justify-content: flex-start;*/
     padding-left: 3rem;
     padding-right: 3rem;
-    background-color: #1982C4;
+    background-color: #2D9CDB;
     .main-logo {
       margin-right: 2rem;
     }

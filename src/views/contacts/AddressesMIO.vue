@@ -36,7 +36,7 @@
   .background-block {
     width: 100vw;
     height: 30rem;
-    background-color: #1982C4;
+    background-color: #2D9CDB;
     position: absolute;
     z-index: -10;
   }

@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbb54b99-2c62-471a-9408-caab4c43373f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/landing/Landing.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DefaultContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DefaultContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Main.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/contacts/AddressesMIO.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/contacts/AddressesMIO.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/landing/Landing.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/landing/Landing.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/print/Print.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/print/Print2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/print/Print4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/print/Print4.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +188,9 @@
       <workItem from="1588492501097" duration="8305000" />
       <workItem from="1588529227473" duration="5000" />
       <workItem from="1588656736079" duration="6065000" />
+      <workItem from="1588743027627" duration="84000" />
+      <workItem from="1588743115648" duration="10000" />
+      <workItem from="1588769073341" duration="7605000" />
     </task>
     <task id="LOCAL-00001" summary="first commit&#10;tut back nachat v main i workers">
       <created>1544627499794</created>
@@ -350,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587293761828</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="landing added">
+      <created>1588743091412</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1588743091412</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,29 +398,30 @@
     <MESSAGE value="lets start" />
     <MESSAGE value="done with redesign" />
     <MESSAGE value="active classes added" />
-    <option name="LAST_COMMIT_MESSAGE" value="active classes added" />
+    <MESSAGE value="landing added" />
+    <option name="LAST_COMMIT_MESSAGE" value="landing added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="472" y="313" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587235407817">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="472" y="313" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1587235407817" />
-    <state x="331" y="51" key="CommitChangelistDialog2" timestamp="1588743063270">
+    <state x="331" y="51" key="CommitChangelistDialog2" timestamp="1588743090500">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="331" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588743063270" />
+    <state x="331" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588743090500" />
     <state x="144" y="79" key="DiffContextDialog" timestamp="1587202424171">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="144" y="79" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587202424171" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588743078449">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588743099055">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588743078449" />
-    <state x="413" y="276" key="com.intellij.ide.util.TipDialog" timestamp="1588656755609">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588743099055" />
+    <state x="413" y="274" key="com.intellij.ide.util.TipDialog" timestamp="1589086857987">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="413" y="276" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1588656755609" />
+    <state x="413" y="274" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1589086857987" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1588498385772">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
